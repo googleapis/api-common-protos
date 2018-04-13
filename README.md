@@ -89,6 +89,19 @@ versions of them. (This is consistent with `protoc`'s default behavior of
 only providing compiled output for the files specifically requested, and not
 their imports.)
 
+## google.protobuf types (separate from this repo)
+
+There are a small number of types that are _so_ common that they are
+included in the actual protocol buffers runtime itself.
+These are anything with an import path beginning with `google/protobuf/`,
+and notably includes timestamps and durations.
+
+These are _not_ defined in this directory, and you do _not_ need to follow
+any of the instructions for including this (as discussed in the root `README`
+file) if you want to use those. They are part of protocol buffers, and
+an import of those will "just work". These are colloquially referred to
+as "well-known types".
+
 ## Disclaimer
 
 These protos are made available by Google, but are not considered to be an
