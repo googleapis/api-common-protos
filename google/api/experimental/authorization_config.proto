@@ -16,34 +16,25 @@ syntax = "proto3";
 
 package google.api;
 
-option cc_enable_arenas = true;
-option go_package = "google.golang.org/genproto/googleapis/api/label;label";
+option go_package = "google.golang.org/genproto/googleapis/api;api";
 option java_multiple_files = true;
-option java_outer_classname = "LabelProto";
+option java_outer_classname = "AuthorizationConfigProto";
 option java_package = "com.google.api";
 option objc_class_prefix = "GAPI";
 
 
-// A description of a label.
-message LabelDescriptor {
-  // Value types that can be used as label values.
-  enum ValueType {
-    // A variable-length string. This is the default.
-    STRING = 0;
-
-    // Boolean; true or false.
-    BOOL = 1;
-
-    // A 64-bit signed integer.
-    INT64 = 2;
-  }
-
-  // The label key.
-  string key = 1;
-
-  // The type of data that can be assigned to the label.
-  ValueType value_type = 2;
-
-  // A human-readable description for the label.
-  string description = 3;
+// Configuration of authorization.
+//
+// This section determines the authorization provider, if unspecified, then no
+// authorization check will be done.
+//
+// Example:
+//
+//     experimental:
+//       authorization:
+//         provider: firebaserules.googleapis.com
+message AuthorizationConfig {
+  // The name of the authorization provider, such as
+  // firebaserules.googleapis.com.
+  string provider = 1;
 }

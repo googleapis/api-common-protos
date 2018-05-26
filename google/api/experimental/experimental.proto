@@ -16,17 +16,19 @@ syntax = "proto3";
 
 package google.api;
 
-import "google/protobuf/any.proto";
+import "google/api/annotations.proto";
+import "google/api/experimental/authorization_config.proto";
 
-option go_package = "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig";
+option go_package = "google.golang.org/genproto/googleapis/api;api";
 option java_multiple_files = true;
-option java_outer_classname = "SourceInfoProto";
+option java_outer_classname = "ExperimentalProto";
 option java_package = "com.google.api";
 option objc_class_prefix = "GAPI";
 
 
-// Source information used to create a Service Config
-message SourceInfo {
-  // All files used during config generation.
-  repeated google.protobuf.Any source_files = 1;
+// Experimental service configuration. These configuration options can
+// only be used by whitelisted users.
+message Experimental {
+  // Authorization configuration.
+  AuthorizationConfig authorization = 8;
 }
