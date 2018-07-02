@@ -1,0 +1,80 @@
+// Copyright 2018 Google LLC
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     https://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+syntax = "proto3";
+
+package google.api;
+
+import "google/protobuf/descriptor.proto";
+
+
+// An annotation designating that this field designates a One Platform
+// resource.
+message Resource {
+  // Required. The resource's path. This is usually in a form such as:
+  //   projects/*/things/*
+  string path = 1;
+
+  // The colloquial name of the resource.
+  // If omitted, this is the name of the message.
+  // This is required if the resource is within a ResourceSet (see below).
+  string base_name = 2;
+}
+
+
+// An annotation designating that this field designates a set of One Platform
+// resources.
+message ResourceSet {
+  // The colloquial name of the resource.
+  // If omitted, this is the name of the message.
+  string base_name = 1;
+
+  // The distinct resources that make up the set.
+  repeated Resource resources = 2;
+}
+
+
+extend google.protobuf.FieldOptions {
+  // A representation of the resource.
+  // This is generally intended to be attached to the "name" field.
+  Resource resource = 51800;
+
+  // A representation of a set of resources, any of which may be
+  // represented.
+  // This is generally intended to be attached to the "name" field
+  // and is mutually exclusive with `resource`.
+  ResourceSet resource_set = 51801;
+
+  // The fully qualified message name of the type that this references.
+  // Marks this as a field referring to a resource in another message.
+  string resource_type = 51802;
+}
+
+
+// A message representing a Project.
+// Useful to be able to declare a project as a referent for another field.
+// (See `resources.proto` in this directory.)
+message Project {
+  string name = 1 [(google.api.resource).path = "projects/*"];
+}
+
+
+// A message representing an Organization.
+// Useful to be able to declare an organization as a referent for another
+// field.
+// (See `resources.proto` in this directory.)
+message Organization {
+  string name = 1 [(google.api.resource).path = "organizations/*"];
+}
