@@ -185,7 +185,6 @@ proto_library(
       ":google_api_context_proto",
       ":google_api_control_proto",
       ":google_api_documentation_proto",
-      ":google_api_experimental_experimental_proto",
       ":google_api_endpoint_proto",
       ":google_api_http_proto",
       ":google_api_label_proto",
@@ -228,21 +227,3 @@ proto_library(
         ":google_api_annotations_proto",
     ],
 )
-
-proto_library(
-    name = "google_api_experimental_experimental_proto",
-    srcs = ["google/api/experimental/experimental.proto"],
-    visibility = ["//visibility:public"],
-    deps = [
-        ":google_api_annotations_proto",
-        ":google_api_experimental_authorization_config_proto",
-    ],
-)
-
-proto_library(
-    name = "google_api_experimental_authorization_config_proto",
-    srcs = ["google/api/experimental/authorization_config.proto"],
-    visibility = ["//visibility:public"],
-)
-
-
