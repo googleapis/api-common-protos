@@ -49,17 +49,17 @@ message ResourceSet {
 extend google.protobuf.FieldOptions {
   // A representation of the resource.
   // This is generally intended to be attached to the "name" field.
-  Resource resource = 51800;
+  Resource resource = 1053;
 
   // A representation of a set of resources, any of which may be
   // represented.
   // This is generally intended to be attached to the "name" field
   // and is mutually exclusive with `resource`.
-  ResourceSet resource_set = 51801;
+  ResourceSet resource_set = 1054;
 
   // The fully qualified message name of the type that this references.
   // Marks this as a field referring to a resource in another message.
-  string resource_type = 51802;
+  string resource_type = 1055;
 }
 
 

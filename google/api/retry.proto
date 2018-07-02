@@ -33,5 +33,5 @@ message Retry {
 
 
 extend google.protobuf.MethodOptions {
-  Retry retry = 51850;
+  Retry retry = 1056;
 }
