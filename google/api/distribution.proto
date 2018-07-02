@@ -17,8 +17,6 @@ syntax = "proto3";
 package google.api;
 
 import "google/api/annotations.proto";
-import "google/protobuf/any.proto";
-import "google/protobuf/timestamp.proto";
 
 option go_package = "google.golang.org/genproto/googleapis/api/distribution;distribution";
 option java_multiple_files = true;

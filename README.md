@@ -41,8 +41,7 @@ purposes, and are documented in their respective README files.
 
 These protos are made available under an Apache license (see `LICENSE`) and
 you are free to depend on them within your applications. They are
-considered stable and will not change in backwards-incompaible ways,
-**except** for those which are in a package with `experimental` in its name.
+considered stable and will not change in backwards-incompaible ways.
 
 In order to depend on these protos, use proto import statements that
 reference the base of this repository, for example:
