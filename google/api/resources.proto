@@ -19,6 +19,10 @@ package google.api;
 
 import "google/protobuf/descriptor.proto";
 
+option java_multiple_files = true;
+option java_outer_classname = "ResourcesProto";
+option java_package = "com.google.api";
+
 
 // An annotation designating that this field designates a One Platform
 // resource.
