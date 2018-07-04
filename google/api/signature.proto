@@ -36,15 +36,3 @@ message MethodSignature {
   // Additional signatures also applicable to the method.
   repeated MethodSignature additional_signatures = 3;
 }
-
-
-extend google.protobuf.MethodOptions {
-  // The parameter lists defined for this method.
-  MethodSignature method_signature = 1051;
-}
-
-
-extend google.protobuf.FieldOptions {
-  // A designation of a specific field as required in requests.
-  bool required = 1052;
-}

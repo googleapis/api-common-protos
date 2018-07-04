@@ -34,8 +34,3 @@ message Retry {
   // to be idempotent (annotated with google.api.http with a `get` key).
   repeated google.rpc.Code codes = 1;
 }
-
-
-extend google.protobuf.MethodOptions {
-  Retry retry = 1056;
-}

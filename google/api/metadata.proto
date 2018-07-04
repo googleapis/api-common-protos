@@ -16,7 +16,6 @@ syntax = "proto3";
 
 package google.api;
 
-import "google/api/auth.proto";
 import "google/protobuf/descriptor.proto";
 
 option java_multiple_files = true;
@@ -59,24 +58,4 @@ message Metadata {
   // If not set, this is inferred from the proto package (all segments
   // prior to the segment that determines `api_name`).
   repeated string package_namespace = 4;
-}
-
-
-// A struct of required information an API client library.
-extend google.protobuf.FileOptions {
-  // Packaging information.
-  Metadata metadata = 1048;
-}
-
-
-// Information for connecting to the service.
-extend google.protobuf.ServiceOptions {
-  // Required. The hostname for this service (e.g. "foo.googleapis.com").
-  // This should be specified with no prefix.
-  string default_host = 1049;
-
-  // Required. OAuth information for the client.
-  // The "canonical_scopes" key is a string; if there is more than one
-  // oauth scope, it should be comma-separated.
-  OAuthRequirements oauth = 1050;
 }
