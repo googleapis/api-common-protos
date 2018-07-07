@@ -59,3 +59,12 @@ message Metadata {
   // prior to the segment that determines `api_name`).
   repeated string package_namespace = 4;
 }
+
+
+// Information about OAuth.
+message OAuth {
+  // The set of OAuth scopes needed to be able to successfully call any RPC
+  // on the service. These are generally specified as a URL, for example:
+  // "https://www.googleapis.com/auth/cloud-platform"
+  repeated string scopes = 1;
+}
