@@ -42,9 +42,9 @@ message Metadata {
   // options introduced for some languages.
   string product_name = 1;
 
-  // The URL for this product.
+  // The URI for this product.
   // This may be used in documentation and package metadata.
-  string product_url = 2;
+  string product_uri = 2;
 
   // The name of the client library package, if it differs from the
   // product name.
