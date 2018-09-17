@@ -89,7 +89,6 @@ extend google.protobuf.MethodOptions {
   HttpRule http = 72295728;
 }
 
-
 // -- These are not annotations, but placing them here solves for a common
 // -- potential import issue.
 
