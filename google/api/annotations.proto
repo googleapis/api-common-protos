@@ -17,6 +17,7 @@ syntax = "proto3";
 package google.api;
 
 import "google/api/http.proto";
+import "google/api/longrunning.proto";
 import "google/api/metadata.proto";
 import "google/api/resources.proto";
 import "google/api/retry.proto";
@@ -87,6 +88,13 @@ extend google.protobuf.MethodOptions {
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
+}
+
+extend google.protobuf.MethodOptions {
+  // The types that are returned from long-running operations.
+  // Required for methods that return google.longrunning.Operation; invalid
+  // otherwise.
+  LongrunningOperationTypes longrunning_operation_types = 1049;
 }
 
 // -- These are not annotations, but placing them here solves for a common

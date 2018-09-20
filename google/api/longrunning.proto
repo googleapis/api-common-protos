@@ -16,8 +16,6 @@ syntax = "proto3";
 
 package google.api;
 
-import "google/protobuf/descriptor.proto";
-
 // A message representing types returned by a longrunning operation.
 message LongrunningOperationTypes {
   // Required. The message name of the primary return type for this
@@ -30,11 +28,4 @@ message LongrunningOperationTypes {
 
   // The metadata message name for this long-running operation.
   string metadata = 2;
-}
-
-extend google.protobuf.MethodOptions {
-  // The types that are returned from long-running operations.
-  // Required for methods that return google.longrunning.Operation; invalid
-  // otherwise.
-  LongrunningOperationTypes longrunning_operation_types = 1049;
 }
