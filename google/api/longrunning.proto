@@ -17,15 +17,15 @@ syntax = "proto3";
 package google.api;
 
 // A message representing types returned by a longrunning operation.
-message LongrunningOperationTypes {
+message OperationData {
   // Required. The message name of the primary return type for this
   // long-running operation.
   // This type will be used to deserialize the LRO's response.
   //
   // If the response is in a different package from the rpc, a fully-qualified
   // message name must be used (e.g. "google.protobuf.Empty").
-  string response = 1;
+  string response_type = 1;
 
-  // The metadata message name for this long-running operation.
-  string metadata = 2;
+  // Required. The metadata message name for this long-running operation.
+  string metadata_type = 2;
 }

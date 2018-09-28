@@ -85,16 +85,16 @@ extend google.protobuf.MethodOptions {
   // See `google/api/signature.proto`.
   MethodSignature method_signature = 1051;
 
+  // Additional information regarding long-running operations.
+  // In particular, this specifies the types that are returned from
+  // long-running operations.
+  // Required for methods that return `google.longrunning.Operation`; invalid
+  // otherwise.
+  OperationData operation_data = 1049;
+
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
-}
-
-extend google.protobuf.MethodOptions {
-  // The types that are returned from long-running operations.
-  // Required for methods that return google.longrunning.Operation; invalid
-  // otherwise.
-  LongrunningOperationTypes longrunning_operation_types = 1049;
 }
 
 // -- These are not annotations, but placing them here solves for a common
