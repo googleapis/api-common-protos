@@ -17,7 +17,7 @@ syntax = "proto3";
 package google.api;
 
 // A message representing types returned by a longrunning operation.
-message LRO {
+message OperationData {
   // Required. The message name of the primary return type for this
   // long-running operation.
   // This type will be used to deserialize the LRO's response.

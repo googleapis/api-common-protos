@@ -88,9 +88,9 @@ extend google.protobuf.MethodOptions {
   // Additional information regarding long-running operations.
   // In particular, this specifies the types that are returned from
   // long-running operations.
-  // Required for methods that return google.longrunning.Operation; invalid
+  // Required for methods that return `google.longrunning.Operation`; invalid
   // otherwise.
-  LRO lro = 1049;
+  OperationData operation_data = 1049;
 
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
