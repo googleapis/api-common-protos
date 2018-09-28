@@ -90,7 +90,7 @@ extend google.protobuf.MethodOptions {
   // long-running operations.
   // Required for methods that return `google.longrunning.Operation`; invalid
   // otherwise.
-  OperationData operation_data = 1049;
+  OperationData operation = 1049;
 
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
