@@ -17,6 +17,7 @@ syntax = "proto3";
 package google.api;
 
 import "google/api/http.proto";
+import "google/api/longrunning.proto";
 import "google/api/metadata.proto";
 import "google/api/resources.proto";
 import "google/api/retry.proto";
@@ -84,11 +85,17 @@ extend google.protobuf.MethodOptions {
   // See `google/api/signature.proto`.
   MethodSignature method_signature = 1051;
 
+  // Additional information regarding long-running operations.
+  // In particular, this specifies the types that are returned from
+  // long-running operations.
+  // Required for methods that return `google.longrunning.Operation`; invalid
+  // otherwise.
+  OperationData operation = 1049;
+
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
 }
-
 
 // -- These are not annotations, but placing them here solves for a common
 // -- potential import issue.

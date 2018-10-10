@@ -18,7 +18,6 @@ package google.longrunning;
 
 import "google/api/annotations.proto";
 import "google/protobuf/any.proto";
-import "google/protobuf/descriptor.proto";
 import "google/protobuf/empty.proto";
 import "google/rpc/status.proto";
 
@@ -157,25 +156,4 @@ message CancelOperationRequest {
 message DeleteOperationRequest {
   // The name of the operation resource to be deleted.
   string name = 1;
-}
-
-// The protocol buffer types used to indirectly support this method.
-message OperationTypes {
-  // Required. The message name of the primary return type for this
-  // long-running operation.
-  // This type will be used to deserialize the LRO's response.
-  //
-  // If the response is in a different package from the rpc, a fully-qualified
-  // message name must be used (e.g. "google.protobuf.Empty").
-  string response = 1;
-
-  // The metadata message name for this long-running operation.
-  string metadata = 2;
-}
-
-extend google.protobuf.MethodOptions {
-  // The types that are returned from long-running operations.
-  // Required for methods that return google.longrunning.Operation; invalid
-  // otherwise.
-  OperationTypes operation_types = 1049;
 }
