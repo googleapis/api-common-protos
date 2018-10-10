@@ -28,6 +28,10 @@ option java_package = "com.google.api";
 message MethodSignature {
   // The list of fields which are considered to be part of the signature,
   // in the order in which they are expected to appear.
+  // NOTE: In order to have an empty method signature, the `function_name`
+  // must be non-empty; otherwise it is impossible to distinguish between
+  // an empty MethodSignature message and a MethodSignature message that
+  // contains an empty signature.
   repeated string fields = 1;
 
   // The name of the function, if it should intentionally differ from the
