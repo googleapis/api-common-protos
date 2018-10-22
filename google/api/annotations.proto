@@ -16,6 +16,7 @@ syntax = "proto3";
 
 package google.api;
 
+import "google/api/field_behavior.proto";
 import "google/api/http.proto";
 import "google/api/longrunning.proto";
 import "google/api/metadata.proto";
@@ -36,6 +37,16 @@ extend google.protobuf.FileOptions {
   // Packaging information.
   // See `google/api/metadata.proto`.
   Metadata metadata = 1048;
+
+  // A representation of a resource.
+  // At a file level, this is generally used to define information for a
+  // resource from another API.
+  repeated Resource resource_definition = 1053;
+
+  // A representation of a set of resources.
+  // At a file level, this is generally used to define information for a
+  // resource set from another API.
+  repeated ResourceSet resource_set_definition = 1054;
 }
 
 
@@ -69,18 +80,13 @@ extend google.protobuf.FieldOptions {
   // See `google/api/resources.proto`.
   string resource_type = 1055;
 
-  // A designation of a specific field as required in requests.
-  // Complements `method_signature` in the method options;
-  // see `google/api/signature.proto` for more details.
-  bool required = 1052;
+  // A designation of a specific field behavior (required, output only, etc.)
+  // in protobuf messages.
+  repeated FieldBehavior field_behavior = 1052;
 }
 
 
 extend google.protobuf.MethodOptions {
-  // Retry information for the applicable method.
-  // See `google/api/retry.proto`.
-  Retry retry = 1056;
-
   // The parameter lists defined for this method.
   // See `google/api/signature.proto`.
   MethodSignature method_signature = 1051;
@@ -104,7 +110,7 @@ extend google.protobuf.MethodOptions {
 // Useful to be able to declare a project as a referent for another field.
 // (See `resources.proto` in this directory.)
 message Project {
-  string name = 1 [(google.api.resource).path = "projects/*"];
+  string name = 1 [(google.api.resource).path = "projects/{project_id}"];
 }
 
 
@@ -113,5 +119,6 @@ message Project {
 // field.
 // (See `resources.proto` in this directory.)
 message Organization {
-  string name = 1 [(google.api.resource).path = "organizations/*"];
+  string name = 1
+    [(google.api.resource).path = "organizations/{organization_id}"];
 }
