@@ -16,6 +16,12 @@ syntax = "proto3";
 
 package google.api;
 
+option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
+option java_multiple_files = true;
+option java_outer_classname = "LongrunningProto";
+option java_package = "com.google.api";
+option objc_class_prefix = "GAPI";
+
 // A message representing types returned by a longrunning operation.
 message OperationData {
   // Required. The message name of the primary return type for this
