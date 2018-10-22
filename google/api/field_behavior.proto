@@ -16,6 +16,12 @@ syntax = "proto3";
 
 package google.api;
 
+option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
+option java_multiple_files = true;
+option java_outer_classname = "FieldBehaviorProto";
+option java_package = "com.google.api";
+option objc_class_prefix = "GAPI";
+
 
 // An indicator of the behavior of a given field (for example, that a field
 // is required in requests, or given as output but ignored as input).
