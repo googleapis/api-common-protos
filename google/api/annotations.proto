@@ -89,7 +89,7 @@ extend google.protobuf.FieldOptions {
 extend google.protobuf.MethodOptions {
   // The parameter lists defined for this method.
   // See `google/api/signature.proto`.
-  MethodSignature method_signature = 1051;
+  repeated MethodSignature method_signature = 1051;
 
   // Additional information regarding long-running operations.
   // In particular, this specifies the types that are returned from
