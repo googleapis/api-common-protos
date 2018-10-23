@@ -21,7 +21,6 @@ import "google/api/http.proto";
 import "google/api/longrunning.proto";
 import "google/api/metadata.proto";
 import "google/api/resources.proto";
-import "google/api/retry.proto";
 import "google/api/signature.proto";
 import "google/protobuf/descriptor.proto";
 
