@@ -79,7 +79,7 @@ extend google.protobuf.FieldOptions {
   // The fully qualified message name of the type that this references.
   // Marks this as a field referring to a resource in another message.
   // See `google/api/resources.proto`.
-  string resource_type = 1055;
+  string resource_reference = 1055;
 
   // A designation of a specific field behavior (required, output only, etc.)
   // in protobuf messages.
