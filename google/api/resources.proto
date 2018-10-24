@@ -46,6 +46,15 @@ message ResourceSet {
   // If omitted, this is the name of the message.
   string name = 1;
 
-  // The distinct resources that make up the set.
-  repeated string resource_types = 2;
+  // Component resources that are part of the set.
+  // Resources declared within a resource set must have `name` set.
+  repeated Resource resources = 2;
+
+  // A reference to existing resources (messages or resource definitions)
+  // that are part of the set.
+  // 
+  // Specify these as fully-qualified protobuf types
+  // (e.g. "google.pubsub.v1.Topic"); for resources in the same package,
+  // the package component may be omitted.
+  repeated string resource_references = 3;
 }
