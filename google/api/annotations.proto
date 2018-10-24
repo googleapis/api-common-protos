@@ -103,23 +103,3 @@ extend google.protobuf.MethodOptions {
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
 }
-
-// -- These are not annotations, but placing them here solves for a common
-// -- potential import issue.
-
-// A message representing a Project.
-// Useful to be able to declare a project as a referent for another field.
-// (See `resources.proto` in this directory.)
-message Project {
-  string name = 1 [(google.api.resource).path = "projects/{project_id}"];
-}
-
-
-// A message representing an Organization.
-// Useful to be able to declare an organization as a referent for another
-// field.
-// (See `resources.proto` in this directory.)
-message Organization {
-  string name = 1
-    [(google.api.resource).path = "organizations/{organization_id}"];
-}
