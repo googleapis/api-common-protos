@@ -48,13 +48,17 @@ message ResourceSet {
 
   // Component resources that are part of the set.
   // Resources declared within a resource set must have `name` set.
+  //
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
   repeated Resource resources = 2;
 
-  // A reference to existing resources (messages or resource definitions)
+  // References to existing resources (messages of resource definitions)
   // that are part of the set.
-  // 
-  // Specify these as fully-qualified protobuf types
-  // (e.g. "google.pubsub.v1.Topic"); for resources in the same package,
-  // the package component may be omitted.
+  //
+  // These may be specified as fully-qualified (e.g. "google.pubsub.v1.Topic")
+  // or just the resource/proto name if it is defined within the same package.
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
   repeated string resource_references = 3;
 }
