@@ -58,6 +58,7 @@ message ResourceSet {
   //
   // These may be specified as fully-qualified (e.g. "google.pubsub.v1.Topic")
   // or just the resource/proto name if it is defined within the same package.
+  //
   // The final set of resources in the resource set is the union of
   // `resources` and `resource_references`.
   repeated string resource_references = 3;
