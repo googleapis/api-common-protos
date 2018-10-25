@@ -76,8 +76,7 @@ extend google.protobuf.FieldOptions {
   // See `google/api/resources.proto`.
   ResourceSet resource_set = 1054;
 
-  // The fully qualified message name of the type that this references.
-  // Marks this as a field referring to a resource in another message.
+  // A reference to another resource message or resource definition.
   // See `google/api/resources.proto`.
   string resource_reference = 1055;
 
