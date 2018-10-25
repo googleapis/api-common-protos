@@ -1,21 +1,12 @@
 version: 2
-workflows:
-  version: 2
-  main:
-    jobs:
-      - build:
-          filters: &all_commits
-            tags:
-              only: /.*/
-
 jobs:
-  compile:
+  build:
     docker:
       - image: ubuntu
     steps:
       - checkout
       - run:
-          name: Install protoc
+          name: Install protoc.
           command: |
             apt-get update && apt-get install -y curl unzip
             curl -o ~/protoc3.zip -L https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
@@ -23,5 +14,5 @@ jobs:
             mv ~/protoc3/bin/* /usr/local/bin/
             mv ~/protoc3/include/* /usr/local/include/
       - run:
-          name: Check if the protos compile
+          name: Verify that the protos compile.
           command: protoc --proto_path=. google/**/*.proto -o /tmp/google.desc

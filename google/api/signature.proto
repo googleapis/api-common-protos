@@ -29,11 +29,4 @@ message MethodSignature {
   // The list of fields which are considered to be part of the signature,
   // in the order in which they are expected to appear.
   repeated string fields = 1;
-
-  // The name of the function, if it should intentionally differ from the
-  // name of the RPC.
-  string function_name = 2;
-
-  // Additional signatures also applicable to the method.
-  repeated MethodSignature additional_signatures = 3;
 }
