@@ -29,13 +29,13 @@ option java_package = "com.google.api";
 // resource.
 message Resource {
   // Required. The resource's path. This is usually in a form such as:
-  //   projects/*/things/*
+  //   projects/{project_id}/things/{thing_id}
   string path = 1;
 
   // The colloquial name of the resource.
   // If omitted, this is the name of the message.
   // This is required if the resource is within a ResourceSet (see below).
-  string base_name = 2;
+  string name = 2;
 }
 
 
@@ -44,8 +44,22 @@ message Resource {
 message ResourceSet {
   // The colloquial name of the resource.
   // If omitted, this is the name of the message.
-  string base_name = 1;
+  string name = 1;
 
-  // The distinct resources that make up the set.
+  // Component resources that are part of the set.
+  // Resources declared within a resource set must have `name` set.
+  //
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
   repeated Resource resources = 2;
+
+  // References to existing resources (messages of resource definitions)
+  // that are part of the set.
+  //
+  // These may be specified as fully-qualified (e.g. "google.pubsub.v1.Topic")
+  // or just the resource/proto name if it is defined within the same package.
+  //
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
+  repeated string resource_references = 3;
 }

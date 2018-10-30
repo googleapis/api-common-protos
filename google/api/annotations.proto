@@ -16,10 +16,11 @@ syntax = "proto3";
 
 package google.api;
 
+import "google/api/field_behavior.proto";
 import "google/api/http.proto";
+import "google/api/longrunning.proto";
 import "google/api/metadata.proto";
 import "google/api/resources.proto";
-import "google/api/retry.proto";
 import "google/api/signature.proto";
 import "google/protobuf/descriptor.proto";
 
@@ -35,6 +36,18 @@ extend google.protobuf.FileOptions {
   // Packaging information.
   // See `google/api/metadata.proto`.
   Metadata metadata = 1048;
+
+  // A representation of a resource.
+  // At a file level, this is generally used to define information for a
+  // resource from another API, or for a resource that does not have an
+  // associated proto message..
+  repeated Resource resource_definition = 1053;
+
+  // A representation of a set of resources.
+  // At a file level, this is generally used to define information for a
+  // resource set from another API, or for a resource that does not have an
+  // associated proto message..
+  repeated ResourceSet resource_set_definition = 1054;
 }
 
 
@@ -63,48 +76,29 @@ extend google.protobuf.FieldOptions {
   // See `google/api/resources.proto`.
   ResourceSet resource_set = 1054;
 
-  // The fully qualified message name of the type that this references.
-  // Marks this as a field referring to a resource in another message.
+  // A reference to another resource message or resource definition.
   // See `google/api/resources.proto`.
-  string resource_type = 1055;
+  string resource_reference = 1055;
 
-  // A designation of a specific field as required in requests.
-  // Complements `method_signature` in the method options;
-  // see `google/api/signature.proto` for more details.
-  bool required = 1052;
+  // A designation of a specific field behavior (required, output only, etc.)
+  // in protobuf messages.
+  repeated FieldBehavior field_behavior = 1052;
 }
 
 
 extend google.protobuf.MethodOptions {
-  // Retry information for the applicable method.
-  // See `google/api/retry.proto`.
-  Retry retry = 1056;
-
   // The parameter lists defined for this method.
   // See `google/api/signature.proto`.
-  MethodSignature method_signature = 1051;
+  repeated MethodSignature method_signature = 1051;
+
+  // Additional information regarding long-running operations.
+  // In particular, this specifies the types that are returned from
+  // long-running operations.
+  // Required for methods that return `google.longrunning.Operation`; invalid
+  // otherwise.
+  OperationData operation = 1049;
 
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
-}
-
-
-// -- These are not annotations, but placing them here solves for a common
-// -- potential import issue.
-
-// A message representing a Project.
-// Useful to be able to declare a project as a referent for another field.
-// (See `resources.proto` in this directory.)
-message Project {
-  string name = 1 [(google.api.resource).path = "projects/*"];
-}
-
-
-// A message representing an Organization.
-// Useful to be able to declare an organization as a referent for another
-// field.
-// (See `resources.proto` in this directory.)
-message Organization {
-  string name = 1 [(google.api.resource).path = "organizations/*"];
 }

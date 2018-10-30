@@ -33,11 +33,4 @@ message MethodSignature {
   // an empty MethodSignature message and a MethodSignature message that
   // contains an empty signature.
   repeated string fields = 1;
-
-  // The name of the function, if it should intentionally differ from the
-  // name of the RPC.
-  string function_name = 2;
-
-  // Additional signatures also applicable to the method.
-  repeated MethodSignature additional_signatures = 3;
 }

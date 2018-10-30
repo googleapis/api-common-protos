@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: ubuntu
+    steps:
+      - checkout
+      - run:
+          name: Install protoc.
+          command: |
+            apt-get update && apt-get install -y curl unzip
+            curl -o ~/protoc3.zip -L https://github.com/google/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip
+            unzip ~/protoc3.zip -d ~/protoc3
+            mv ~/protoc3/bin/* /usr/local/bin/
+            mv ~/protoc3/include/* /usr/local/include/
+      - run:
+          name: Verify that the protos compile.
+          command: protoc --proto_path=. google/**/*.proto -o /tmp/google.desc

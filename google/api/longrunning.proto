@@ -16,22 +16,22 @@ syntax = "proto3";
 
 package google.api;
 
-import "google/protobuf/descriptor.proto";
-import "google/rpc/code.proto";
-
 option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
 option java_multiple_files = true;
-option java_outer_classname = "RetryProto";
+option java_outer_classname = "LongrunningProto";
 option java_package = "com.google.api";
+option objc_class_prefix = "GAPI";
 
-
-// Information about situations where retrying a request should be
-// handled automatically.
-message Retry {
-  // Designate that the given gRPC error codes should be automatically
-  // retried by clients.
+// A message representing types returned by a longrunning operation.
+message OperationData {
+  // Required. The message name of the primary return type for this
+  // long-running operation.
+  // This type will be used to deserialize the LRO's response.
   //
-  // `INTERNAL` and `UNAVAILABLE` are retried on requests known
-  // to be idempotent (annotated with google.api.http with a `get` key).
-  repeated google.rpc.Code codes = 1;
+  // If the response is in a different package from the rpc, a fully-qualified
+  // message name must be used (e.g. "google.protobuf.Empty").
+  string response_type = 1;
+
+  // Required. The metadata message name for this long-running operation.
+  string metadata_type = 2;
 }
