@@ -40,13 +40,13 @@ extend google.protobuf.FileOptions {
   // A representation of a resource.
   // At a file level, this is generally used to define information for a
   // resource from another API, or for a resource that does not have an
-  // associated proto message..
+  // associated proto message.
   repeated Resource resource_definition = 1053;
 
   // A representation of a set of resources.
   // At a file level, this is generally used to define information for a
   // resource set from another API, or for a resource that does not have an
-  // associated proto message..
+  // associated proto message.
   repeated ResourceSet resource_set_definition = 1054;
 }
 
