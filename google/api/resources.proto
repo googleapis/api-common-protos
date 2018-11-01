@@ -52,10 +52,9 @@ message ResourceSet {
   // The final set of resources in the resource set is the union of
   // `resources` and `resource_references`.
   //
-  // Resources defined here are in the same scope that the containing
-  // ResourceSet is defined at; e.g. if this ResourceSet is defined
-  // at the protofile level, then these contained Resources are also valid
-  // at the protofile level.
+  // Resources defined here are only valid for the scope inside the
+  // containing ResourceSet; i.e. other messages cannot reference
+  // these contained Resources by name.
   repeated Resource resources = 2;
 
   // References to existing resources (messages of resource definitions)
