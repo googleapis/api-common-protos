@@ -51,6 +51,9 @@ message ResourceSet {
   //
   // The final set of resources in the resource set is the union of
   // `resources` and `resource_references`.
+  //
+  // Resources defined here are only scoped within the parent ResourceSet;
+  // i.e. other messages cannot reference these contained Resources by name.
   repeated Resource resources = 2;
 
   // References to existing resources (messages of resource definitions)
