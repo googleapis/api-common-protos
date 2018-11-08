@@ -18,6 +18,7 @@ syntax = "proto3";
 package google.api;
 
 import "google/protobuf/descriptor.proto";
+import "google/api/annotations.proto";
 
 option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
 option java_multiple_files = true;
@@ -63,3 +64,21 @@ message ResourceSet {
   // `resources` and `resource_references`.
   repeated string resource_references = 3;
 }
+
+
+// Common Resource Imports. (See `resources.proto` in this directory.)
+
+// A Resource representing a Project.
+// Useful to be able to declare a project as a referent for another field.
+option (google.api.resource_definition) = {
+  name: "Project"
+  path: "projects/{project}"
+};
+
+// A Resource representing an Organization.
+// Useful to be able to declare an organization as a referent for another
+// field.
+option (google.api.resource_definition) = {
+  name: "Organization"
+  path : "organizations/{organization}"
+};
