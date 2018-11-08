@@ -110,6 +110,9 @@ extend google.protobuf.MethodOptions {
 // Useful to be able to declare a project as a referent for another field.
 option (google.api.resource_definition) = {
   name: "Project"
+
+  // Though convention would be to format the path as `projects/{project_id}`,
+  // this path lacks the `_id` suffix for backwards compatibility.
   path: "projects/{project}"
 };
 
@@ -118,5 +121,9 @@ option (google.api.resource_definition) = {
 // field.
 option (google.api.resource_definition) = {
   name: "Organization"
+
+  // Though convention would be to format the path as
+  // `organizations/{organization_id}`,
+  // this path lacks the `_id` suffix for backwards compatibility.
   path : "organizations/{organization}"
 };
