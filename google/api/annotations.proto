@@ -102,28 +102,3 @@ extend google.protobuf.MethodOptions {
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
 }
-
-
-// Common Resource Imports. (See `resources.proto` in this directory.)
-
-// A Resource representing a Project.
-// Useful to be able to declare a project as a referent for another field.
-option (google.api.resource_definition) = {
-  name: "Project"
-
-  // Though convention would be to format the path as `projects/{project_id}`,
-  // this path lacks the `_id` suffix for backwards compatibility.
-  path: "projects/{project}"
-};
-
-// A Resource representing an Organization.
-// Useful to be able to declare an organization as a referent for another
-// field.
-option (google.api.resource_definition) = {
-  name: "Organization"
-
-  // Though convention would be to format the path as
-  // `organizations/{organization_id}`,
-  // this path lacks the `_id` suffix for backwards compatibility.
-  path : "organizations/{organization}"
-};

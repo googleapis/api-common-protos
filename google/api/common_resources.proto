@@ -1,0 +1,50 @@
+// Copyright (c) 2018, Google Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//     http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+syntax = "proto3";
+
+package google.api;
+
+import "google/api/annotations.proto";
+
+option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
+option java_multiple_files = true;
+option java_outer_classname = "CommonResourcesProto";
+option java_package = "com.google.api";
+option objc_class_prefix = "GAPI";
+
+
+// Common Resource Imports. (See `resources.proto` in this directory.)
+
+// A Resource representing a Project.
+// Useful to be able to declare a project as a referent for another field.
+option (google.api.resource_definition) = {
+  name: "Project"
+
+  // Though convention would be to format the path as `projects/{project_id}`,
+  // this path lacks the `_id` suffix for backwards compatibility.
+  path: "projects/{project}"
+};
+
+// A Resource representing an Organization.
+// Useful to be able to declare an organization as a referent for another
+// field.
+option (google.api.resource_definition) = {
+  name: "Organization"
+
+  // Though convention would be to format the path as
+  // `organizations/{organization_id}`,
+  // this path lacks the `_id` suffix for backwards compatibility.
+  path : "organizations/{organization}"
+};
