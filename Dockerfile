@@ -10,11 +10,9 @@ RUN mkdir -p /usr/src/protoc/ \
     && cd /usr/src/protoc/ \
     && unzip protoc-${PROTOBUF_VERSION}.zip \
     && rm protoc-${PROTOBUF_VERSION}.zip \
-    && ln -s /usr/src/protoc/bin/protoc /usr/local/bin/protoc
+    && ln -s /usr/src/protoc/bin/protoc /usr/local/bin/protoc \
+    && mkdir -p /protos/ \
+    && cp -R /usr/src/protoc/include/google/ /protos/google/
 
 # Add the protos to the Docker image.
-ADD ./google /protos/google
-
-# Add Bazel build data to the image.
-ADD ./BUILD.bazel /protos/BUILD.bazel
-ADD ./WORKSPACE /protos/WORKSPACE
+COPY . /protos/
