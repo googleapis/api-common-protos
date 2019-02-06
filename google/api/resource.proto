@@ -58,6 +58,35 @@ message Resource {
 }
 
 
+// An annotation designating that this field designates a set of One Platform
+// resources.
+message ResourceSet {
+  // The colloquial name of the resource.
+  // If omitted, this is the name of the message.
+  string symbol = 1;
+
+  // Component resources that are part of the set.
+  // Resources declared within a resource set must have `name` set.
+  //
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
+  //
+  // Resources defined here are only scoped within the parent ResourceSet;
+  // i.e. other messages cannot reference these contained Resources by name.
+  repeated Resource resources = 2;
+
+  // References to existing resources (messages of resource definitions)
+  // that are part of the set.
+  //
+  // These may be specified as fully-qualified (e.g. "google.pubsub.v1.Topic")
+  // or just the resource/proto name if it is defined within the same package.
+  //
+  // The final set of resources in the resource set is the union of
+  // `resources` and `resource_references`.
+  repeated string resource_references = 3;
+}
+
+
 extend google.protobuf.FieldOptions {
   // A representation of the resource.
   // This is generally intended to be attached to the "name" field of
@@ -71,8 +100,40 @@ extend google.protobuf.FieldOptions {
   //       }];
   //     }
   //
-  // Only one of {`resource`, `resource_reference`} may be set.
+  // Only one of {`resource`, `resource_set`, `resource_reference`} may be set.
   Resource resource = 1053;
+
+  // A representation of a set of resoures, any of which may be represented
+  // within the field.
+  //
+  // This is generally intended to be attached to the "name" field of
+  // the message representing the resource, and represents the unusual
+  // case where the resource can use one of a set of patterns.
+  //
+  // (-- go/not-api-precedent: In general, resources should not have multiple
+  //     patterns, especially in a world with flex resources. This exists
+  //     primarily to support already-existing APIs which required the pattern.
+  //  --)
+  //
+  // Example:
+  //
+  //   message LogEntry {
+  //     string name = 1 [(google.api.resource_set) = {
+  //       resources: [
+  //         { pattern: "projects/{project}/logs/{log}"
+  //           symbol: "ProjectLogEntry" },
+  //         { pattern: "organizations/{organization}/logs/{log}"
+  //           symbol: "OrganizationLogEntry" },
+  //         { pattern: "folders/{folder}/logs/{log}"
+  //           symbol: "FolderLogEntry" },
+  //         { pattern: "billingAccounts/{billing_account}/logs/{log}"
+  //           symbol: "BillingAccountLogEntry" }
+  //       ]
+  //     };
+  //   }
+  //
+  // Only one of {`resource`, `resource_set`, `resource_reference`} may be set.
+  ResourceSet resource_set = 1054;
 
   // The fully qualified message name of the type that this field references.
   // Marks this as a field referring to a resource in another message.
@@ -92,7 +153,7 @@ extend google.protobuf.FieldOptions {
   //       [(google.api.resource_reference) = "Topic"];
   //   }
   //
-  // Only one of {`resource`, `resource_reference`} may be set.
+  // Only one of {`resource`, `resource_set`, `resource_reference`} may be set.
   string resource_reference = 1055;
 }
 
