@@ -25,6 +25,71 @@ option java_package = "com.google.api";
 option objc_class_prefix = "GAPI";
 
 
+// Information about the API as a whole.
+// This is generally used for client library packaging and documentation, and
+// only needs to be set when correct values can not be inferred from the proto
+// package.
+//
+// For example, Pub/Sub sets this to:
+//
+//     option (google.api.package) = {
+//       title: "Pub/Sub"
+//       namespace: ["Google", "Cloud"]
+//       version: "v1"
+//     };
+//
+// If this is set, then the `title`, `namespace`, and `version` fields
+// should all be set.
+message Package {
+  // Required. The title of the package (and, by default, the product).
+  //
+  // This should be set to the colloquial name of the API, and is used
+  // for things such as determining the package name.
+  //
+  // Specify this in appropriate title casing, with space as the word
+  // separator (e.g. "Speech", "BigQuery", "Video Intelligence", "Pub/Sub").
+  //
+  // This value may be used as-is in documentation, and code generators should
+  // normalize it appropriately for idiomatic package, module, etc. names in
+  // their language.
+  string title = 1;
+
+  // Required. The namespace.
+  //
+  // This should be set to the package namespace, using appropriate title
+  // casing (the same casing as `title`, above). Client libraries
+  // should normalize it appropriately for package, module, etc. names in
+  // their language.
+  //
+  //   Example: ["Google", "Cloud"]
+  //
+  // This is used to inform the prefix for package manager names, and the code
+  // layout in cases where the language-specific protobuf options are not set.
+  //
+  // The "required" note above is "soft". This *should* be set, but an empty
+  // namespace is technically valid.
+  repeated string namespace = 2;
+
+  // Required. The version.
+  // This should be set to the API version, such as "v1".
+  string version = 3;
+
+  // The title of the product, if different from the package title above.
+  // This may be used in documentation and package metadata.
+  string product_title = 4;
+}
+
+
+extend google.protobuf.FileOptions {
+  // Package metadata. This describes how to publish supporting components
+  // (for example: client libraries) for this API.
+  //
+  // If this is set, then the `title`, `namespace`, and `version` fields
+  // should all be set.
+  Package package = 1048;
+}
+
+
 extend google.protobuf.ServiceOptions {
   // The hostname for this service.
   // This should be specified with no prefix or protocol.
