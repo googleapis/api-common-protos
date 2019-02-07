@@ -3,11 +3,7 @@ workflows:
   version: 2
   main:
     jobs:
-      - build:
-          filters: &all_commits
-            tags:
-              only: /.*/
-
+      - compile
 jobs:
   compile:
     docker:
