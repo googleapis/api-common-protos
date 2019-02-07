@@ -12,7 +12,9 @@ workflows:
             - compile
           filters:
             branches:
-              ignore: /.*/
+              only:
+                - input-contract
+                - master
             tags:
               only: /^\d+\.\d+\.\d+$/
 jobs:
@@ -69,11 +71,11 @@ jobs:
               docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
               docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:$MAJOR
               docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR.$PATCH
-              if [ "$CIRCLE_BRANCH" == "master" ]; then
-                docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
-                docker push gcr.io/gapic-images/api-common-protos:$MAJOR
-              fi
-            fi
-            if [ "$CIRCLE_BRANCH" == "master" ]; then
+              docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
+              docker push gcr.io/gapic-images/api-common-protos:$MAJOR
               docker push gcr.io/gapic-images/api-common-protos:latest
+            elif [ "$CIRCLE_BRANCH" == "master" ]; then
+              docker push gcr.io/gapic-images/api-common-protos:latest
+            elif [ "$CIRCLE_BRANCH" == "input-contract" ]; then
+              docker push gcr.io/gapic-images/api-common-protos:beta
             fi
