@@ -3,18 +3,7 @@ workflows:
   version: 2
   tests:
     jobs:
-      - build:
-          filters:
-            tags:
-              only: /.*/
-      - publish_image:
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^\d+\.\d+\.\d+$/
+      - compile
 jobs:
   build:
     docker:
