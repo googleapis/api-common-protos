@@ -77,5 +77,6 @@ jobs:
             elif [ "$CIRCLE_BRANCH" == "master" ]; then
               docker push gcr.io/gapic-images/api-common-protos:latest
             elif [ "$CIRCLE_BRANCH" == "input-contract" ]; then
+              docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:beta
               docker push gcr.io/gapic-images/api-common-protos:beta
             fi
