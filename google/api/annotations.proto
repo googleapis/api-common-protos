@@ -16,12 +16,7 @@ syntax = "proto3";
 
 package google.api;
 
-import "google/api/field_behavior.proto";
 import "google/api/http.proto";
-import "google/api/longrunning.proto";
-import "google/api/metadata.proto";
-import "google/api/resources.proto";
-import "google/api/signature.proto";
 import "google/protobuf/descriptor.proto";
 
 option go_package = "google.golang.org/genproto/googleapis/api/annotations;annotations";
@@ -31,73 +26,7 @@ option java_package = "com.google.api";
 option objc_class_prefix = "GAPI";
 
 
-// A struct of required information an API client library.
-extend google.protobuf.FileOptions {
-  // Packaging information.
-  // See `google/api/metadata.proto`.
-  Metadata metadata = 1048;
-
-  // A representation of a resource.
-  // At a file level, this is generally used to define information for a
-  // resource from another API, or for a resource that does not have an
-  // associated proto message.
-  repeated Resource resource_definition = 1053;
-
-  // A representation of a set of resources.
-  // At a file level, this is generally used to define information for a
-  // resource set from another API, or for a resource that does not have an
-  // associated proto message.
-  repeated ResourceSet resource_set_definition = 1054;
-}
-
-
-// Information for connecting to the service.
-extend google.protobuf.ServiceOptions {
-  // Required. The hostname for this service (e.g. "foo.googleapis.com").
-  // This should be specified with no prefix.
-  string default_host = 1049;
-
-  // Required. OAuth information for the client.
-  // The "scopes" key is a repeated string; see `google/api/metadata.proto`.
-  OAuth oauth = 1050;
-}
-
-
-extend google.protobuf.FieldOptions {
-  // A representation of the resource.
-  // This is generally intended to be attached to the "name" field.
-  // See `google/api/resources.proto`.
-  Resource resource = 1053;
-
-  // A representation of a set of resources, any of which may be
-  // represented.
-  // This is generally intended to be attached to the "name" field
-  // and is mutually exclusive with `resource`.
-  // See `google/api/resources.proto`.
-  ResourceSet resource_set = 1054;
-
-  // A reference to another resource message or resource definition.
-  // See `google/api/resources.proto`.
-  string resource_reference = 1055;
-
-  // A designation of a specific field behavior (required, output only, etc.)
-  // in protobuf messages.
-  repeated FieldBehavior field_behavior = 1052;
-}
-
-
 extend google.protobuf.MethodOptions {
-  // The parameter lists defined for this method.
-  // See `google/api/signature.proto`.
-  repeated MethodSignature method_signature = 1051;
-
-  // Additional information regarding long-running operations.
-  // In particular, this specifies the types that are returned from
-  // long-running operations.
-  // Required for methods that return `google.longrunning.Operation`; invalid
-  // otherwise.
-  OperationData operation = 1049;
-
   // The HTTP bindings for this method.
   // See `google/api/http.proto`.
   HttpRule http = 72295728;
