@@ -3,9 +3,20 @@ workflows:
   version: 2
   tests:
     jobs:
-      - compile
+      - compile:
+          filters:
+            tags:
+              only: /.*/
+      - publish_image:
+          requires:
+            - compile
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^\d+\.\d+\.\d+$/
 jobs:
-  build:
+  compile:
     docker:
       - image: ubuntu:16.04
     steps:
