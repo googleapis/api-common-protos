@@ -12,7 +12,9 @@ workflows:
             - compile
           filters:
             branches:
-              ignore: /.*/
+              only:
+                - input-contract
+                - master
             tags:
               only: /^\d+\.\d+\.\d+$/
 jobs:
@@ -36,21 +38,44 @@ jobs:
           command: protoc --proto_path=. google/**/*.proto -o /tmp/google.desc
   publish_image:
     docker:
-      - image: google/cloud-sdk
+      - image: docker
     steps:
       - checkout
+      - setup_remote_docker
       - run:
           name: Build Docker image.
-          command: docker build . \
-            -t gcr.io/gapic-images/api-common-protos:${CIRCLE_TAG} \
-            -t gcr.io/gapic-images/api-common-protos:latest
+          command: |
+            docker build . -t gcr.io/gapic-images/api-common-protos:latest
+      - run:
+          name: Download curl
+          command: apk add --no-cache curl
+      - run:
+          name: Download the GCR credential helper.
+          command: |
+            curl -fsSL https://github.com/GoogleCloudPlatform/docker-credential-gcr/releases/download/v1.5.0/docker-credential-gcr_linux_amd64-1.5.0.tar.gz \
+              | tar xz --to-stdout ./docker-credential-gcr \
+              > /usr/bin/docker-credential-gcr && chmod a+x /usr/bin/docker-credential-gcr
       - run:
           name: Set up authentication to Google Container Registry.
           command: |
             echo ${GCLOUD_SERVICE_KEY} > ${GOOGLE_APPLICATION_CREDENTIALS}
-            gcloud auth configure-docker
+            docker-credential-gcr configure-docker
       - run:
-          name: Push Docker image to Google Container Registry.
+          name: Tag the Docker image and push it to Google Container Registry.
           command: |
-            docker push gcr.io/gapic-images/api-common-protos:${CIRCLE_TAG}
-            docker push gcr.io/gapic-images/api-common-protos:latest
+            if [ -n "$CIRCLE_TAG" ]; then
+              export MAJOR=`echo $CIRCLE_TAG | awk -F '.' '{ print $1; }'`
+              export MINOR=`echo $CIRCLE_TAG | awk -F '.' '{ print $2; }'`
+              export PATCH=`echo $CIRCLE_TAG | awk -F '.' '{ print $3; }'`
+              docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR.$PATCH
+              docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
+              docker tag gcr.io/gapic-images/api-common-protos:latest gcr.io/gapic-images/api-common-protos:$MAJOR
+              docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR.$PATCH
+              docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
+              docker push gcr.io/gapic-images/api-common-protos:$MAJOR
+              docker push gcr.io/gapic-images/api-common-protos:latest
+            elif [ "$CIRCLE_BRANCH" == "master" ]; then
+              docker push gcr.io/gapic-images/api-common-protos:latest
+            elif [ "$CIRCLE_BRANCH" == "input-contract" ]; then
+              docker push gcr.io/gapic-images/api-common-protos:beta
+            fi
