@@ -86,7 +86,7 @@ extend google.protobuf.FileOptions {
   //
   // If this is set, then the `title`, `namespace`, and `version` fields
   // should all be set.
-  Package package = 1048;
+  Package client_package = 1048;
 }
 
 
