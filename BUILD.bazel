@@ -52,6 +52,15 @@ proto_library(
 )
 
 proto_library(
+    name = "google_api_client_proto",
+    srcs = ["google/api/client.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:descriptor_proto",
+    ],
+)
+
+proto_library(
     name = "google_api_config_change_proto",
     srcs = ["google/api/config_change.proto"],
     visibility = ["//visibility:public"],
@@ -102,6 +111,15 @@ proto_library(
 )
 
 proto_library(
+    name = "google_api_field_behavior",
+    srcs = ["google/api/field_behavior.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:descriptor_proto",
+    ],
+)
+
+proto_library(
     name = "google_api_http_proto",
     srcs = ["google/api/http.proto"],
     visibility = ["//visibility:public"],
@@ -111,6 +129,9 @@ proto_library(
     name = "google_api_httpbody_proto",
     srcs = ["google/api/httpbody.proto"],
     visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:any_proto",
+    ],
 )
 
 proto_library(
@@ -152,6 +173,7 @@ proto_library(
     visibility = ["//visibility:public"],
     deps = [
         ":google_api_label_proto",
+        "@com_google_protobuf//:struct_proto",
     ],
 )
 
@@ -170,6 +192,15 @@ proto_library(
     visibility = ["//visibility:public"],
     deps = [
         ":google_api_annotations_proto",
+    ],
+)
+
+proto_library(
+    name = "google_api_resource_proto",
+    srcs = ["google/api/resource.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_google_protobuf//:descriptor_proto",
     ],
 )
 
