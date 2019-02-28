@@ -56,8 +56,8 @@ proto_library(
 )
 
 cc_proto_library(
-		name = "client_cc_proto",
-  	deps = [":client_proto"],
+    name = "client_cc_proto",
+    deps = [":client_proto"],
 )
 
 proto_library(
