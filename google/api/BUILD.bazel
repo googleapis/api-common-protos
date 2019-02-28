@@ -55,6 +55,11 @@ proto_library(
     ],
 )
 
+cc_proto_library(
+		name = "client_cc_proto",
+  	deps = [":client_proto"],
+)
+
 proto_library(
     name = "config_change_proto",
     srcs = ["config_change.proto"],
