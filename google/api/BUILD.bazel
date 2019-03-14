@@ -109,7 +109,7 @@ proto_library(
 )
 
 proto_library(
-    name = "field_behavior",
+    name = "field_behavior_proto",
     srcs = ["field_behavior.proto"],
     deps = [
         "@com_google_protobuf//:descriptor_proto",
