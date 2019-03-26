@@ -18,6 +18,21 @@ workflows:
             tags:
               only: /^\d+\.\d+\.\d+$/
 jobs:
+  protolock:
+    docker:
+      - image: docker
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Check proto definition backward-compatibility.
+          command: |
+            docker pull nilslice/protolock:latest
+            docker create -v /protolock --name tmp nilslice/protolock:latest
+            docker cp . tmp:/protolock
+            docker run --volumes-from tmp -w /protolock nilslice/protolock status
+            docker rm tmp
   compile:
     docker:
       - image: ubuntu:16.04

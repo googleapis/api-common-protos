@@ -1,0 +1,5344 @@
+{
+  "definitions": [
+    {
+      "protopath": "google:/:api:/:annotations.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "google.protobuf.MethodOptions",
+            "fields": [
+              {
+                "id": 72295728,
+                "name": "http",
+                "type": "HttpRule"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/http.proto"
+          },
+          {
+            "path": "google/protobuf/descriptor.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/annotations;annotations"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "AnnotationsProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:auth.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Authentication",
+            "fields": [
+              {
+                "id": 3,
+                "name": "rules",
+                "type": "AuthenticationRule",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "providers",
+                "type": "AuthProvider",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "AuthenticationRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "oauth",
+                "type": "OAuthRequirements"
+              },
+              {
+                "id": 5,
+                "name": "allow_without_credential",
+                "type": "bool"
+              },
+              {
+                "id": 7,
+                "name": "requirements",
+                "type": "AuthRequirement",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "AuthProvider",
+            "fields": [
+              {
+                "id": 1,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "issuer",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "jwks_uri",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "audiences",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "authorization_url",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "OAuthRequirements",
+            "fields": [
+              {
+                "id": 1,
+                "name": "canonical_scopes",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "AuthRequirement",
+            "fields": [
+              {
+                "id": 1,
+                "name": "provider_id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "audiences",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "AuthProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:backend.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Backend",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rules",
+                "type": "BackendRule",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "BackendRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "address",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "deadline",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "min_deadline",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "BackendProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:billing.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Billing",
+            "fields": [
+              {
+                "id": 8,
+                "name": "consumer_destinations",
+                "type": "BillingDestination",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "BillingDestination",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "monitored_resource",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "metrics",
+                    "type": "string",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "BillingProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:client.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "google.protobuf.ServiceOptions",
+            "fields": [
+              {
+                "id": 1049,
+                "name": "default_host",
+                "type": "string"
+              },
+              {
+                "id": 1050,
+                "name": "oauth_scopes",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "google.protobuf.MethodOptions",
+            "fields": [
+              {
+                "id": 1051,
+                "name": "method_signature",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/descriptor.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/annotations;annotations"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ClientProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:config_change.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "ChangeType",
+            "enum_fields": [
+              {
+                "name": "CHANGE_TYPE_UNSPECIFIED"
+              },
+              {
+                "name": "ADDED",
+                "integer": 1
+              },
+              {
+                "name": "REMOVED",
+                "integer": 2
+              },
+              {
+                "name": "MODIFIED",
+                "integer": 3
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "ConfigChange",
+            "fields": [
+              {
+                "id": 1,
+                "name": "element",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "old_value",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "new_value",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "change_type",
+                "type": "ChangeType"
+              },
+              {
+                "id": 5,
+                "name": "advices",
+                "type": "Advice",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Advice",
+            "fields": [
+              {
+                "id": 2,
+                "name": "description",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/configchange;configchange"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ConfigChangeProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:consumer.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "Property.PropertyType",
+            "enum_fields": [
+              {
+                "name": "UNSPECIFIED"
+              },
+              {
+                "name": "INT64",
+                "integer": 1
+              },
+              {
+                "name": "BOOL",
+                "integer": 2
+              },
+              {
+                "name": "STRING",
+                "integer": 3
+              },
+              {
+                "name": "DOUBLE",
+                "integer": 4
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "ProjectProperties",
+            "fields": [
+              {
+                "id": 1,
+                "name": "properties",
+                "type": "Property",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "Property",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "type",
+                "type": "PropertyType"
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ConsumerProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:context.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Context",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rules",
+                "type": "ContextRule",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "ContextRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "requested",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "provided",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ContextProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:control.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Control",
+            "fields": [
+              {
+                "id": 1,
+                "name": "environment",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ControlProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:distribution.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Distribution",
+            "fields": [
+              {
+                "id": 1,
+                "name": "count",
+                "type": "int64"
+              },
+              {
+                "id": 2,
+                "name": "mean",
+                "type": "double"
+              },
+              {
+                "id": 3,
+                "name": "sum_of_squared_deviation",
+                "type": "double"
+              },
+              {
+                "id": 4,
+                "name": "range",
+                "type": "Range"
+              },
+              {
+                "id": 6,
+                "name": "bucket_options",
+                "type": "BucketOptions"
+              },
+              {
+                "id": 7,
+                "name": "bucket_counts",
+                "type": "int64",
+                "is_repeated": true
+              },
+              {
+                "id": 10,
+                "name": "exemplars",
+                "type": "Exemplar",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "Range",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "min",
+                    "type": "double"
+                  },
+                  {
+                    "id": 2,
+                    "name": "max",
+                    "type": "double"
+                  }
+                ]
+              },
+              {
+                "name": "BucketOptions",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "linear_buckets",
+                    "type": "Linear"
+                  },
+                  {
+                    "id": 2,
+                    "name": "exponential_buckets",
+                    "type": "Exponential"
+                  },
+                  {
+                    "id": 3,
+                    "name": "explicit_buckets",
+                    "type": "Explicit"
+                  }
+                ],
+                "messages": [
+                  {
+                    "name": "Linear",
+                    "fields": [
+                      {
+                        "id": 1,
+                        "name": "num_finite_buckets",
+                        "type": "int32"
+                      },
+                      {
+                        "id": 2,
+                        "name": "width",
+                        "type": "double"
+                      },
+                      {
+                        "id": 3,
+                        "name": "offset",
+                        "type": "double"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Exponential",
+                    "fields": [
+                      {
+                        "id": 1,
+                        "name": "num_finite_buckets",
+                        "type": "int32"
+                      },
+                      {
+                        "id": 2,
+                        "name": "growth_factor",
+                        "type": "double"
+                      },
+                      {
+                        "id": 3,
+                        "name": "scale",
+                        "type": "double"
+                      }
+                    ]
+                  },
+                  {
+                    "name": "Explicit",
+                    "fields": [
+                      {
+                        "id": 1,
+                        "name": "bounds",
+                        "type": "double",
+                        "is_repeated": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "Exemplar",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "value",
+                    "type": "double"
+                  },
+                  {
+                    "id": 2,
+                    "name": "timestamp",
+                    "type": "google.protobuf.Timestamp"
+                  },
+                  {
+                    "id": 3,
+                    "name": "attachments",
+                    "type": "google.protobuf.Any",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/distribution;distribution"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "DistributionProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:documentation.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Documentation",
+            "fields": [
+              {
+                "id": 1,
+                "name": "summary",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "pages",
+                "type": "Page",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "rules",
+                "type": "DocumentationRule",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "documentation_root_url",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "overview",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "DocumentationRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "deprecation_description",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Page",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "content",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "subpages",
+                "type": "Page",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "DocumentationProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:endpoint.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Endpoint",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "aliases",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "features",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 101,
+                "name": "target",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "allow_cors",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "EndpointProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:field_behavior.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "FieldBehavior",
+            "enum_fields": [
+              {
+                "name": "FIELD_BEHAVIOR_UNSPECIFIED"
+              },
+              {
+                "name": "OPTIONAL",
+                "integer": 1
+              },
+              {
+                "name": "REQUIRED",
+                "integer": 2
+              },
+              {
+                "name": "OUTPUT_ONLY",
+                "integer": 3
+              },
+              {
+                "name": "INPUT_ONLY",
+                "integer": 4
+              },
+              {
+                "name": "IMMUTABLE",
+                "integer": 5
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "google.protobuf.FieldOptions",
+            "fields": [
+              {
+                "id": 1052,
+                "name": "field_behavior",
+                "type": "FieldBehavior",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/descriptor.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/annotations;annotations"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "FieldBehaviorProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:http.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Http",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rules",
+                "type": "HttpRule",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "fully_decode_reserved_expansion",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "HttpRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "get",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "put",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "post",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "delete",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "patch",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "custom",
+                "type": "CustomHttpPattern"
+              },
+              {
+                "id": 7,
+                "name": "body",
+                "type": "string"
+              },
+              {
+                "id": 12,
+                "name": "response_body",
+                "type": "string"
+              },
+              {
+                "id": 11,
+                "name": "additional_bindings",
+                "type": "HttpRule",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "CustomHttpPattern",
+            "fields": [
+              {
+                "id": 1,
+                "name": "kind",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "path",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/annotations;annotations"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "HttpProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:httpbody.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "HttpBody",
+            "fields": [
+              {
+                "id": 1,
+                "name": "content_type",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "data",
+                "type": "bytes"
+              },
+              {
+                "id": 3,
+                "name": "extensions",
+                "type": "google.protobuf.Any",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/httpbody;httpbody"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "HttpBodyProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:label.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "LabelDescriptor.ValueType",
+            "enum_fields": [
+              {
+                "name": "STRING"
+              },
+              {
+                "name": "BOOL",
+                "integer": 1
+              },
+              {
+                "name": "INT64",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "LabelDescriptor",
+            "fields": [
+              {
+                "id": 1,
+                "name": "key",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "value_type",
+                "type": "ValueType"
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/label;label"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "LabelProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:log.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "LogDescriptor",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "labels",
+                "type": "LabelDescriptor",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "display_name",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/label.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "LogProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:logging.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Logging",
+            "fields": [
+              {
+                "id": 1,
+                "name": "producer_destinations",
+                "type": "LoggingDestination",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "consumer_destinations",
+                "type": "LoggingDestination",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "LoggingDestination",
+                "fields": [
+                  {
+                    "id": 3,
+                    "name": "monitored_resource",
+                    "type": "string"
+                  },
+                  {
+                    "id": 1,
+                    "name": "logs",
+                    "type": "string",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "LoggingProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:metric.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "MetricDescriptor.MetricKind",
+            "enum_fields": [
+              {
+                "name": "METRIC_KIND_UNSPECIFIED"
+              },
+              {
+                "name": "GAUGE",
+                "integer": 1
+              },
+              {
+                "name": "DELTA",
+                "integer": 2
+              },
+              {
+                "name": "CUMULATIVE",
+                "integer": 3
+              }
+            ]
+          },
+          {
+            "name": "MetricDescriptor.ValueType",
+            "enum_fields": [
+              {
+                "name": "VALUE_TYPE_UNSPECIFIED"
+              },
+              {
+                "name": "BOOL",
+                "integer": 1
+              },
+              {
+                "name": "INT64",
+                "integer": 2
+              },
+              {
+                "name": "DOUBLE",
+                "integer": 3
+              },
+              {
+                "name": "STRING",
+                "integer": 4
+              },
+              {
+                "name": "DISTRIBUTION",
+                "integer": 5
+              },
+              {
+                "name": "MONEY",
+                "integer": 6
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "MetricDescriptor",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "labels",
+                "type": "LabelDescriptor",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "metric_kind",
+                "type": "MetricKind"
+              },
+              {
+                "id": 4,
+                "name": "value_type",
+                "type": "ValueType"
+              },
+              {
+                "id": 5,
+                "name": "unit",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "display_name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Metric",
+            "fields": [
+              {
+                "id": 3,
+                "name": "type",
+                "type": "string"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 2,
+                  "name": "labels",
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/label.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/metric;metric"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "MetricProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:monitored_resource.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "MonitoredResourceDescriptor",
+            "fields": [
+              {
+                "id": 5,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 1,
+                "name": "type",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "display_name",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "labels",
+                "type": "LabelDescriptor",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "MonitoredResource",
+            "fields": [
+              {
+                "id": 1,
+                "name": "type",
+                "type": "string"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 2,
+                  "name": "labels",
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          {
+            "name": "MonitoredResourceMetadata",
+            "fields": [
+              {
+                "id": 1,
+                "name": "system_labels",
+                "type": "google.protobuf.Struct"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 2,
+                  "name": "user_labels",
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/label.proto"
+          },
+          {
+            "path": "google/protobuf/struct.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/monitoredres;monitoredres"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "MonitoredResourceProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:monitoring.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Monitoring",
+            "fields": [
+              {
+                "id": 1,
+                "name": "producer_destinations",
+                "type": "MonitoringDestination",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "consumer_destinations",
+                "type": "MonitoringDestination",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "MonitoringDestination",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "monitored_resource",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "metrics",
+                    "type": "string",
+                    "is_repeated": true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "MonitoringProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:quota.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Quota",
+            "fields": [
+              {
+                "id": 3,
+                "name": "limits",
+                "type": "QuotaLimit",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "metric_rules",
+                "type": "MetricRule",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "MetricRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 2,
+                  "name": "metric_costs",
+                  "type": "int64"
+                }
+              }
+            ]
+          },
+          {
+            "name": "QuotaLimit",
+            "fields": [
+              {
+                "id": 6,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "default_limit",
+                "type": "int64"
+              },
+              {
+                "id": 4,
+                "name": "max_limit",
+                "type": "int64"
+              },
+              {
+                "id": 7,
+                "name": "free_tier",
+                "type": "int64"
+              },
+              {
+                "id": 5,
+                "name": "duration",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "metric",
+                "type": "string"
+              },
+              {
+                "id": 9,
+                "name": "unit",
+                "type": "string"
+              },
+              {
+                "id": 12,
+                "name": "display_name",
+                "type": "string"
+              }
+            ],
+            "maps": [
+              {
+                "key_type": "string",
+                "field": {
+                  "id": 10,
+                  "name": "values",
+                  "type": "int64"
+                }
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "QuotaProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:resource.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Resource",
+            "fields": [
+              {
+                "id": 1,
+                "name": "pattern",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "symbol",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "google.protobuf.FieldOptions",
+            "fields": [
+              {
+                "id": 1053,
+                "name": "resource",
+                "type": "Resource"
+              },
+              {
+                "id": 1055,
+                "name": "resource_reference",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "google.protobuf.FileOptions",
+            "fields": [
+              {
+                "id": 1053,
+                "name": "resource_definition",
+                "type": "Resource",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/descriptor.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/annotations;annotations"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ResourceProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          },
+          {
+            "name": "(google.api.resource_definition)",
+            "aggregated": [
+              {
+                "name": "pattern",
+                "value": "projects/{project}"
+              },
+              {
+                "name": "symbol",
+                "value": "Project"
+              }
+            ]
+          },
+          {
+            "name": "(google.api.resource_definition)",
+            "aggregated": [
+              {
+                "name": "pattern",
+                "value": "organizations/{organization}"
+              },
+              {
+                "name": "symbol",
+                "value": "Organization"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:service.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Service",
+            "fields": [
+              {
+                "id": 20,
+                "name": "config_version",
+                "type": "google.protobuf.UInt32Value"
+              },
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 33,
+                "name": "id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "id": 22,
+                "name": "producer_project_id",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "apis",
+                "type": "google.protobuf.Api",
+                "is_repeated": true
+              },
+              {
+                "id": 4,
+                "name": "types",
+                "type": "google.protobuf.Type",
+                "is_repeated": true
+              },
+              {
+                "id": 5,
+                "name": "enums",
+                "type": "google.protobuf.Enum",
+                "is_repeated": true
+              },
+              {
+                "id": 6,
+                "name": "documentation",
+                "type": "Documentation"
+              },
+              {
+                "id": 8,
+                "name": "backend",
+                "type": "Backend"
+              },
+              {
+                "id": 9,
+                "name": "http",
+                "type": "Http"
+              },
+              {
+                "id": 10,
+                "name": "quota",
+                "type": "Quota"
+              },
+              {
+                "id": 11,
+                "name": "authentication",
+                "type": "Authentication"
+              },
+              {
+                "id": 12,
+                "name": "context",
+                "type": "Context"
+              },
+              {
+                "id": 15,
+                "name": "usage",
+                "type": "Usage"
+              },
+              {
+                "id": 18,
+                "name": "endpoints",
+                "type": "Endpoint",
+                "is_repeated": true
+              },
+              {
+                "id": 21,
+                "name": "control",
+                "type": "Control"
+              },
+              {
+                "id": 23,
+                "name": "logs",
+                "type": "LogDescriptor",
+                "is_repeated": true
+              },
+              {
+                "id": 24,
+                "name": "metrics",
+                "type": "MetricDescriptor",
+                "is_repeated": true
+              },
+              {
+                "id": 25,
+                "name": "monitored_resources",
+                "type": "MonitoredResourceDescriptor",
+                "is_repeated": true
+              },
+              {
+                "id": 26,
+                "name": "billing",
+                "type": "Billing"
+              },
+              {
+                "id": 27,
+                "name": "logging",
+                "type": "Logging"
+              },
+              {
+                "id": 28,
+                "name": "monitoring",
+                "type": "Monitoring"
+              },
+              {
+                "id": 29,
+                "name": "system_parameters",
+                "type": "SystemParameters"
+              },
+              {
+                "id": 37,
+                "name": "source_info",
+                "type": "SourceInfo"
+              }
+            ],
+            "reserved_ids": [
+              101
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/api/auth.proto"
+          },
+          {
+            "path": "google/api/backend.proto"
+          },
+          {
+            "path": "google/api/billing.proto"
+          },
+          {
+            "path": "google/api/context.proto"
+          },
+          {
+            "path": "google/api/control.proto"
+          },
+          {
+            "path": "google/api/documentation.proto"
+          },
+          {
+            "path": "google/api/endpoint.proto"
+          },
+          {
+            "path": "google/api/http.proto"
+          },
+          {
+            "path": "google/api/log.proto"
+          },
+          {
+            "path": "google/api/logging.proto"
+          },
+          {
+            "path": "google/api/metric.proto"
+          },
+          {
+            "path": "google/api/monitored_resource.proto"
+          },
+          {
+            "path": "google/api/monitoring.proto"
+          },
+          {
+            "path": "google/api/quota.proto"
+          },
+          {
+            "path": "google/api/source_info.proto"
+          },
+          {
+            "path": "google/api/system_parameter.proto"
+          },
+          {
+            "path": "google/api/usage.proto"
+          },
+          {
+            "path": "google/protobuf/api.proto"
+          },
+          {
+            "path": "google/protobuf/type.proto"
+          },
+          {
+            "path": "google/protobuf/wrappers.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ServiceProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:source_info.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SourceInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "source_files",
+                "type": "google.protobuf.Any",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "SourceInfoProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:system_parameter.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SystemParameters",
+            "fields": [
+              {
+                "id": 1,
+                "name": "rules",
+                "type": "SystemParameterRule",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "SystemParameterRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "parameters",
+                "type": "SystemParameter",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "SystemParameter",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "http_header",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "url_query_parameter",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "SystemParameterProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:api:/:usage.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Usage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "requirements",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 6,
+                "name": "rules",
+                "type": "UsageRule",
+                "is_repeated": true
+              },
+              {
+                "id": 7,
+                "name": "producer_notification_channel",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "UsageRule",
+            "fields": [
+              {
+                "id": 1,
+                "name": "selector",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "allow_unregistered_calls",
+                "type": "bool"
+              },
+              {
+                "id": 3,
+                "name": "skip_service_control",
+                "type": "bool"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.api"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/api/serviceconfig;serviceconfig"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "UsageProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.api"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GAPI"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:iam:/:admin:/:v1:/:iam.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "ListServiceAccountKeysRequest.KeyType",
+            "enum_fields": [
+              {
+                "name": "KEY_TYPE_UNSPECIFIED"
+              },
+              {
+                "name": "USER_MANAGED",
+                "integer": 1
+              },
+              {
+                "name": "SYSTEM_MANAGED",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "Role.RoleLaunchStage",
+            "enum_fields": [
+              {
+                "name": "ALPHA"
+              },
+              {
+                "name": "BETA",
+                "integer": 1
+              },
+              {
+                "name": "GA",
+                "integer": 2
+              },
+              {
+                "name": "DEPRECATED",
+                "integer": 4
+              },
+              {
+                "name": "DISABLED",
+                "integer": 5
+              },
+              {
+                "name": "EAP",
+                "integer": 6
+              }
+            ]
+          },
+          {
+            "name": "Permission.PermissionLaunchStage",
+            "enum_fields": [
+              {
+                "name": "ALPHA"
+              },
+              {
+                "name": "BETA",
+                "integer": 1
+              },
+              {
+                "name": "GA",
+                "integer": 2
+              },
+              {
+                "name": "DEPRECATED",
+                "integer": 3
+              }
+            ]
+          },
+          {
+            "name": "Permission.CustomRolesSupportLevel",
+            "enum_fields": [
+              {
+                "name": "SUPPORTED"
+              },
+              {
+                "name": "TESTING",
+                "integer": 1
+              },
+              {
+                "name": "NOT_SUPPORTED",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "ServiceAccountKeyAlgorithm",
+            "enum_fields": [
+              {
+                "name": "KEY_ALG_UNSPECIFIED"
+              },
+              {
+                "name": "KEY_ALG_RSA_1024",
+                "integer": 1
+              },
+              {
+                "name": "KEY_ALG_RSA_2048",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "ServiceAccountPrivateKeyType",
+            "enum_fields": [
+              {
+                "name": "TYPE_UNSPECIFIED"
+              },
+              {
+                "name": "TYPE_PKCS12_FILE",
+                "integer": 1
+              },
+              {
+                "name": "TYPE_GOOGLE_CREDENTIALS_FILE",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "ServiceAccountPublicKeyType",
+            "enum_fields": [
+              {
+                "name": "TYPE_NONE"
+              },
+              {
+                "name": "TYPE_X509_PEM_FILE",
+                "integer": 1
+              },
+              {
+                "name": "TYPE_RAW_PUBLIC_KEY",
+                "integer": 2
+              }
+            ]
+          },
+          {
+            "name": "RoleView",
+            "enum_fields": [
+              {
+                "name": "BASIC"
+              },
+              {
+                "name": "FULL",
+                "integer": 1
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "ServiceAccount",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "project_id",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "unique_id",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "email",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "display_name",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "etag",
+                "type": "bytes"
+              },
+              {
+                "id": 9,
+                "name": "oauth2_client_id",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "CreateServiceAccountRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "account_id",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "service_account",
+                "type": "ServiceAccount"
+              }
+            ]
+          },
+          {
+            "name": "ListServiceAccountsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "page_size",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ListServiceAccountsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "accounts",
+                "type": "ServiceAccount",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "next_page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetServiceAccountRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "DeleteServiceAccountRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ListServiceAccountKeysRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "key_types",
+                "type": "KeyType",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "ListServiceAccountKeysResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "keys",
+                "type": "ServiceAccountKey",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "GetServiceAccountKeyRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "public_key_type",
+                "type": "ServiceAccountPublicKeyType"
+              }
+            ]
+          },
+          {
+            "name": "ServiceAccountKey",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "private_key_type",
+                "type": "ServiceAccountPrivateKeyType"
+              },
+              {
+                "id": 8,
+                "name": "key_algorithm",
+                "type": "ServiceAccountKeyAlgorithm"
+              },
+              {
+                "id": 3,
+                "name": "private_key_data",
+                "type": "bytes"
+              },
+              {
+                "id": 7,
+                "name": "public_key_data",
+                "type": "bytes"
+              },
+              {
+                "id": 4,
+                "name": "valid_after_time",
+                "type": "google.protobuf.Timestamp"
+              },
+              {
+                "id": 5,
+                "name": "valid_before_time",
+                "type": "google.protobuf.Timestamp"
+              }
+            ]
+          },
+          {
+            "name": "CreateServiceAccountKeyRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "private_key_type",
+                "type": "ServiceAccountPrivateKeyType"
+              },
+              {
+                "id": 3,
+                "name": "key_algorithm",
+                "type": "ServiceAccountKeyAlgorithm"
+              }
+            ]
+          },
+          {
+            "name": "DeleteServiceAccountKeyRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "SignBlobRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "bytes_to_sign",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "SignBlobResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "key_id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "signature",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "SignJwtRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "payload",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "SignJwtResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "key_id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "signed_jwt",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Role",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "included_permissions",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 8,
+                "name": "stage",
+                "type": "RoleLaunchStage"
+              },
+              {
+                "id": 9,
+                "name": "etag",
+                "type": "bytes"
+              },
+              {
+                "id": 11,
+                "name": "deleted",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "QueryGrantableRolesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "full_resource_name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "view",
+                "type": "RoleView"
+              },
+              {
+                "id": 3,
+                "name": "page_size",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "QueryGrantableRolesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "roles",
+                "type": "Role",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "next_page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ListRolesRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "parent",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "page_size",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "page_token",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "view",
+                "type": "RoleView"
+              },
+              {
+                "id": 6,
+                "name": "show_deleted",
+                "type": "bool"
+              }
+            ]
+          },
+          {
+            "name": "ListRolesResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "roles",
+                "type": "Role",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "next_page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "GetRoleRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "CreateRoleRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "parent",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "role_id",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "role",
+                "type": "Role"
+              }
+            ]
+          },
+          {
+            "name": "UpdateRoleRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "role",
+                "type": "Role"
+              },
+              {
+                "id": 3,
+                "name": "update_mask",
+                "type": "google.protobuf.FieldMask"
+              }
+            ]
+          },
+          {
+            "name": "DeleteRoleRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "etag",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "UndeleteRoleRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "etag",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "Permission",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "title",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "description",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "only_in_predefined_roles",
+                "type": "bool"
+              },
+              {
+                "id": 5,
+                "name": "stage",
+                "type": "PermissionLaunchStage"
+              },
+              {
+                "id": 6,
+                "name": "custom_roles_support_level",
+                "type": "CustomRolesSupportLevel"
+              }
+            ]
+          },
+          {
+            "name": "QueryTestablePermissionsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "full_resource_name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "page_size",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "QueryTestablePermissionsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "permissions",
+                "type": "Permission",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "next_page_token",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "name": "IAM",
+            "rpcs": [
+              {
+                "name": "ListServiceAccounts",
+                "in_type": "ListServiceAccountsRequest",
+                "out_type": "ListServiceAccountsResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=projects/*}/serviceAccounts"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetServiceAccount",
+                "in_type": "GetServiceAccountRequest",
+                "out_type": "ServiceAccount",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "CreateServiceAccount",
+                "in_type": "CreateServiceAccountRequest",
+                "out_type": "ServiceAccount",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=projects/*}/serviceAccounts"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "UpdateServiceAccount",
+                "in_type": "ServiceAccount",
+                "out_type": "ServiceAccount",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "put",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "DeleteServiceAccount",
+                "in_type": "DeleteServiceAccountRequest",
+                "out_type": "google.protobuf.Empty",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "delete",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "ListServiceAccountKeys",
+                "in_type": "ListServiceAccountKeysRequest",
+                "out_type": "ListServiceAccountKeysResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}/keys"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetServiceAccountKey",
+                "in_type": "GetServiceAccountKeyRequest",
+                "out_type": "ServiceAccountKey",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*/keys/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "CreateServiceAccountKey",
+                "in_type": "CreateServiceAccountKeyRequest",
+                "out_type": "ServiceAccountKey",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}/keys"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "DeleteServiceAccountKey",
+                "in_type": "DeleteServiceAccountKeyRequest",
+                "out_type": "google.protobuf.Empty",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "delete",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*/keys/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "SignBlob",
+                "in_type": "SignBlobRequest",
+                "out_type": "SignBlobResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}:signBlob"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "SignJwt",
+                "in_type": "SignJwtRequest",
+                "out_type": "SignJwtResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=projects/*/serviceAccounts/*}:signJwt"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetIamPolicy",
+                "in_type": "google.iam.v1.GetIamPolicyRequest",
+                "out_type": "google.iam.v1.Policy",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=projects/*/serviceAccounts/*}:getIamPolicy"
+                      },
+                      {
+                        "name": "body"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "SetIamPolicy",
+                "in_type": "google.iam.v1.SetIamPolicyRequest",
+                "out_type": "google.iam.v1.Policy",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=projects/*/serviceAccounts/*}:setIamPolicy"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "TestIamPermissions",
+                "in_type": "google.iam.v1.TestIamPermissionsRequest",
+                "out_type": "google.iam.v1.TestIamPermissionsResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=projects/*/serviceAccounts/*}:testIamPermissions"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "QueryGrantableRoles",
+                "in_type": "QueryGrantableRolesRequest",
+                "out_type": "QueryGrantableRolesResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/roles:queryGrantableRoles"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "ListRoles",
+                "in_type": "ListRolesRequest",
+                "out_type": "ListRolesResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/roles"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetRole",
+                "in_type": "GetRoleRequest",
+                "out_type": "Role",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=roles/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "CreateRole",
+                "in_type": "CreateRoleRequest",
+                "out_type": "Role",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{parent=organizations/*}/roles"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "UpdateRole",
+                "in_type": "UpdateRoleRequest",
+                "out_type": "Role",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "patch",
+                        "value": "/v1/{name=organizations/*/roles/*}"
+                      },
+                      {
+                        "name": "body",
+                        "value": "role"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "DeleteRole",
+                "in_type": "DeleteRoleRequest",
+                "out_type": "Role",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "delete",
+                        "value": "/v1/{name=organizations/*/roles/*}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "UndeleteRole",
+                "in_type": "UndeleteRoleRequest",
+                "out_type": "Role",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=organizations/*/roles/*}:undelete"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "QueryTestablePermissions",
+                "in_type": "QueryTestablePermissionsRequest",
+                "out_type": "QueryTestablePermissionsResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/permissions:queryTestablePermissions"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/iam/v1/iam_policy.proto"
+          },
+          {
+            "path": "google/iam/v1/policy.proto"
+          },
+          {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "google/protobuf/field_mask.proto"
+          },
+          {
+            "path": "google/protobuf/timestamp.proto"
+          }
+        ],
+        "package": {
+          "name": "google.iam.admin.v1"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/iam/admin/v1;admin"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "IamProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.iam.admin.v1"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:iam:/:v1:/:iam_policy.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "SetIamPolicyRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "resource",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "policy",
+                "type": "Policy"
+              }
+            ]
+          },
+          {
+            "name": "GetIamPolicyRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "resource",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "TestIamPermissionsRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "resource",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "permissions",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "TestIamPermissionsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "permissions",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "name": "IAMPolicy",
+            "rpcs": [
+              {
+                "name": "SetIamPolicy",
+                "in_type": "SetIamPolicyRequest",
+                "out_type": "Policy",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=**}:setIamPolicy"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetIamPolicy",
+                "in_type": "GetIamPolicyRequest",
+                "out_type": "Policy",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=**}:getIamPolicy"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "TestIamPermissions",
+                "in_type": "TestIamPermissionsRequest",
+                "out_type": "TestIamPermissionsResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{resource=**}:testIamPermissions"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/iam/v1/policy.proto"
+          }
+        ],
+        "package": {
+          "name": "google.iam.v1"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Google.Cloud.Iam.V1"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/iam/v1;iam"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "IamPolicyProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.iam.v1"
+          },
+          {
+            "name": "php_namespace",
+            "value": "Google\\\\Cloud\\\\Iam\\\\V1"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:iam:/:v1:/:logging:/:audit_data.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "AuditData",
+            "fields": [
+              {
+                "id": 2,
+                "name": "policy_delta",
+                "type": "google.iam.v1.PolicyDelta"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/iam/v1/policy.proto"
+          }
+        ],
+        "package": {
+          "name": "google.iam.v1.logging"
+        },
+        "options": [
+          {
+            "name": "csharp_namespace",
+            "value": "Google.Cloud.Iam.V1.Logging"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/iam/v1/logging;logging"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "AuditDataProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.iam.v1.logging"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:iam:/:v1:/:policy.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "BindingDelta.Action",
+            "enum_fields": [
+              {
+                "name": "ACTION_UNSPECIFIED"
+              },
+              {
+                "name": "ADD",
+                "integer": 1
+              },
+              {
+                "name": "REMOVE",
+                "integer": 2
+              }
+            ]
+          }
+        ],
+        "messages": [
+          {
+            "name": "Policy",
+            "fields": [
+              {
+                "id": 1,
+                "name": "version",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "bindings",
+                "type": "Binding",
+                "is_repeated": true
+              },
+              {
+                "id": 3,
+                "name": "etag",
+                "type": "bytes"
+              }
+            ]
+          },
+          {
+            "name": "Binding",
+            "fields": [
+              {
+                "id": 1,
+                "name": "role",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "members",
+                "type": "string",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "PolicyDelta",
+            "fields": [
+              {
+                "id": 1,
+                "name": "binding_deltas",
+                "type": "BindingDelta",
+                "is_repeated": true
+              }
+            ]
+          },
+          {
+            "name": "BindingDelta",
+            "fields": [
+              {
+                "id": 1,
+                "name": "action",
+                "type": "Action"
+              },
+              {
+                "id": 2,
+                "name": "role",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "member",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.iam.v1"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "csharp_namespace",
+            "value": "Google.Cloud.Iam.V1"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/iam/v1;iam"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "PolicyProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.iam.v1"
+          },
+          {
+            "name": "php_namespace",
+            "value": "Google\\\\Cloud\\\\Iam\\\\V1"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:logging:/:type:/:http_request.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "HttpRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "request_method",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "request_url",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "request_size",
+                "type": "int64"
+              },
+              {
+                "id": 4,
+                "name": "status",
+                "type": "int32"
+              },
+              {
+                "id": 5,
+                "name": "response_size",
+                "type": "int64"
+              },
+              {
+                "id": 6,
+                "name": "user_agent",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "remote_ip",
+                "type": "string"
+              },
+              {
+                "id": 13,
+                "name": "server_ip",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "referer",
+                "type": "string"
+              },
+              {
+                "id": 14,
+                "name": "latency",
+                "type": "google.protobuf.Duration"
+              },
+              {
+                "id": 11,
+                "name": "cache_lookup",
+                "type": "bool"
+              },
+              {
+                "id": 9,
+                "name": "cache_hit",
+                "type": "bool"
+              },
+              {
+                "id": 10,
+                "name": "cache_validated_with_origin_server",
+                "type": "bool"
+              },
+              {
+                "id": 12,
+                "name": "cache_fill_bytes",
+                "type": "int64"
+              },
+              {
+                "id": 15,
+                "name": "protocol",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/protobuf/duration.proto"
+          }
+        ],
+        "package": {
+          "name": "google.logging.type"
+        },
+        "options": [
+          {
+            "name": "csharp_namespace",
+            "value": "Google.Cloud.Logging.Type"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/logging/type;ltype"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "HttpRequestProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.logging.type"
+          },
+          {
+            "name": "php_namespace",
+            "value": "Google\\\\Cloud\\\\Logging\\\\Type"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:logging:/:type:/:log_severity.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "LogSeverity",
+            "enum_fields": [
+              {
+                "name": "DEFAULT"
+              },
+              {
+                "name": "DEBUG",
+                "integer": 100
+              },
+              {
+                "name": "INFO",
+                "integer": 200
+              },
+              {
+                "name": "NOTICE",
+                "integer": 300
+              },
+              {
+                "name": "WARNING",
+                "integer": 400
+              },
+              {
+                "name": "ERROR",
+                "integer": 500
+              },
+              {
+                "name": "CRITICAL",
+                "integer": 600
+              },
+              {
+                "name": "ALERT",
+                "integer": 700
+              },
+              {
+                "name": "EMERGENCY",
+                "integer": 800
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          }
+        ],
+        "package": {
+          "name": "google.logging.type"
+        },
+        "options": [
+          {
+            "name": "csharp_namespace",
+            "value": "Google.Cloud.Logging.Type"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/logging/type;ltype"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "LogSeverityProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.logging.type"
+          },
+          {
+            "name": "php_namespace",
+            "value": "Google\\\\Cloud\\\\Logging\\\\Type"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:longrunning:/:operations.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Operation",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "metadata",
+                "type": "google.protobuf.Any"
+              },
+              {
+                "id": 3,
+                "name": "done",
+                "type": "bool"
+              },
+              {
+                "id": 4,
+                "name": "error",
+                "type": "google.rpc.Status"
+              },
+              {
+                "id": 5,
+                "name": "response",
+                "type": "google.protobuf.Any"
+              }
+            ]
+          },
+          {
+            "name": "GetOperationRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ListOperationsRequest",
+            "fields": [
+              {
+                "id": 4,
+                "name": "name",
+                "type": "string"
+              },
+              {
+                "id": 1,
+                "name": "filter",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "page_size",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ListOperationsResponse",
+            "fields": [
+              {
+                "id": 1,
+                "name": "operations",
+                "type": "Operation",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "next_page_token",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "CancelOperationRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "DeleteOperationRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "name",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "OperationInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "response_type",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "metadata_type",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "google.protobuf.MethodOptions",
+            "fields": [
+              {
+                "id": 1049,
+                "name": "operation_info",
+                "type": "OperationInfo"
+              }
+            ]
+          }
+        ],
+        "services": [
+          {
+            "name": "Operations",
+            "rpcs": [
+              {
+                "name": "ListOperations",
+                "in_type": "ListOperationsRequest",
+                "out_type": "ListOperationsResponse",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=operations}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "GetOperation",
+                "in_type": "GetOperationRequest",
+                "out_type": "Operation",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "get",
+                        "value": "/v1/{name=operations/**}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "DeleteOperation",
+                "in_type": "DeleteOperationRequest",
+                "out_type": "google.protobuf.Empty",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "delete",
+                        "value": "/v1/{name=operations/**}"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "name": "CancelOperation",
+                "in_type": "CancelOperationRequest",
+                "out_type": "google.protobuf.Empty",
+                "options": [
+                  {
+                    "name": "(google.api.http)",
+                    "aggregated": [
+                      {
+                        "name": "post",
+                        "value": "/v1/{name=operations/**}:cancel"
+                      },
+                      {
+                        "name": "body",
+                        "value": "*"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/api/annotations.proto"
+          },
+          {
+            "path": "google/protobuf/any.proto"
+          },
+          {
+            "path": "google/protobuf/descriptor.proto"
+          },
+          {
+            "path": "google/protobuf/empty.proto"
+          },
+          {
+            "path": "google/rpc/status.proto"
+          }
+        ],
+        "package": {
+          "name": "google.longrunning"
+        },
+        "options": [
+          {
+            "name": "csharp_namespace",
+            "value": "Google.LongRunning"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/longrunning;longrunning"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "OperationsProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.longrunning"
+          },
+          {
+            "name": "php_namespace",
+            "value": "Google\\\\LongRunning"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:rpc:/:code.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "Code",
+            "enum_fields": [
+              {
+                "name": "OK"
+              },
+              {
+                "name": "CANCELLED",
+                "integer": 1
+              },
+              {
+                "name": "UNKNOWN",
+                "integer": 2
+              },
+              {
+                "name": "INVALID_ARGUMENT",
+                "integer": 3
+              },
+              {
+                "name": "DEADLINE_EXCEEDED",
+                "integer": 4
+              },
+              {
+                "name": "NOT_FOUND",
+                "integer": 5
+              },
+              {
+                "name": "ALREADY_EXISTS",
+                "integer": 6
+              },
+              {
+                "name": "PERMISSION_DENIED",
+                "integer": 7
+              },
+              {
+                "name": "UNAUTHENTICATED",
+                "integer": 16
+              },
+              {
+                "name": "RESOURCE_EXHAUSTED",
+                "integer": 8
+              },
+              {
+                "name": "FAILED_PRECONDITION",
+                "integer": 9
+              },
+              {
+                "name": "ABORTED",
+                "integer": 10
+              },
+              {
+                "name": "OUT_OF_RANGE",
+                "integer": 11
+              },
+              {
+                "name": "UNIMPLEMENTED",
+                "integer": 12
+              },
+              {
+                "name": "INTERNAL",
+                "integer": 13
+              },
+              {
+                "name": "UNAVAILABLE",
+                "integer": 14
+              },
+              {
+                "name": "DATA_LOSS",
+                "integer": 15
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.rpc"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/rpc/code;code"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "CodeProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.rpc"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "RPC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:rpc:/:error_details.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "RetryInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "retry_delay",
+                "type": "google.protobuf.Duration"
+              }
+            ]
+          },
+          {
+            "name": "DebugInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "stack_entries",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 2,
+                "name": "detail",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "QuotaFailure",
+            "fields": [
+              {
+                "id": 1,
+                "name": "violations",
+                "type": "Violation",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "Violation",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "subject",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "description",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "PreconditionFailure",
+            "fields": [
+              {
+                "id": 1,
+                "name": "violations",
+                "type": "Violation",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "Violation",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "type",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "subject",
+                    "type": "string"
+                  },
+                  {
+                    "id": 3,
+                    "name": "description",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "BadRequest",
+            "fields": [
+              {
+                "id": 1,
+                "name": "field_violations",
+                "type": "FieldViolation",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "FieldViolation",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "field",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "description",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "RequestInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "request_id",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "serving_data",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "ResourceInfo",
+            "fields": [
+              {
+                "id": 1,
+                "name": "resource_type",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "resource_name",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "owner",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "description",
+                "type": "string"
+              }
+            ]
+          },
+          {
+            "name": "Help",
+            "fields": [
+              {
+                "id": 1,
+                "name": "links",
+                "type": "Link",
+                "is_repeated": true
+              }
+            ],
+            "messages": [
+              {
+                "name": "Link",
+                "fields": [
+                  {
+                    "id": 1,
+                    "name": "description",
+                    "type": "string"
+                  },
+                  {
+                    "id": 2,
+                    "name": "url",
+                    "type": "string"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "LocalizedMessage",
+            "fields": [
+              {
+                "id": 1,
+                "name": "locale",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "message",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/duration.proto"
+          }
+        ],
+        "package": {
+          "name": "google.rpc"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/rpc/errdetails;errdetails"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ErrorDetailsProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.rpc"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "RPC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:rpc:/:status.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Status",
+            "fields": [
+              {
+                "id": 1,
+                "name": "code",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "message",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "details",
+                "type": "google.protobuf.Any",
+                "is_repeated": true
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/any.proto"
+          }
+        ],
+        "package": {
+          "name": "google.rpc"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/rpc/status;status"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "StatusProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.rpc"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "RPC"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:color.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Color",
+            "fields": [
+              {
+                "id": 1,
+                "name": "red",
+                "type": "float"
+              },
+              {
+                "id": 2,
+                "name": "green",
+                "type": "float"
+              },
+              {
+                "id": 3,
+                "name": "blue",
+                "type": "float"
+              },
+              {
+                "id": 4,
+                "name": "alpha",
+                "type": "google.protobuf.FloatValue"
+              }
+            ]
+          }
+        ],
+        "imports": [
+          {
+            "path": "google/protobuf/wrappers.proto"
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/color;color"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "ColorProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:date.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Date",
+            "fields": [
+              {
+                "id": 1,
+                "name": "year",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "month",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "day",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "cc_enable_arenas",
+            "value": "true"
+          },
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/date;date"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "DateProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:dayofweek.proto",
+      "def": {
+        "enums": [
+          {
+            "name": "DayOfWeek",
+            "enum_fields": [
+              {
+                "name": "DAY_OF_WEEK_UNSPECIFIED"
+              },
+              {
+                "name": "MONDAY",
+                "integer": 1
+              },
+              {
+                "name": "TUESDAY",
+                "integer": 2
+              },
+              {
+                "name": "WEDNESDAY",
+                "integer": 3
+              },
+              {
+                "name": "THURSDAY",
+                "integer": 4
+              },
+              {
+                "name": "FRIDAY",
+                "integer": 5
+              },
+              {
+                "name": "SATURDAY",
+                "integer": 6
+              },
+              {
+                "name": "SUNDAY",
+                "integer": 7
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/dayofweek;dayofweek"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "DayOfWeekProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:latlng.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "LatLng",
+            "fields": [
+              {
+                "id": 1,
+                "name": "latitude",
+                "type": "double"
+              },
+              {
+                "id": 2,
+                "name": "longitude",
+                "type": "double"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/latlng;latlng"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "LatLngProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:money.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "Money",
+            "fields": [
+              {
+                "id": 1,
+                "name": "currency_code",
+                "type": "string"
+              },
+              {
+                "id": 2,
+                "name": "units",
+                "type": "int64"
+              },
+              {
+                "id": 3,
+                "name": "nanos",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/money;money"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "MoneyProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:postal_address.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "PostalAddress",
+            "fields": [
+              {
+                "id": 1,
+                "name": "revision",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "region_code",
+                "type": "string"
+              },
+              {
+                "id": 3,
+                "name": "language_code",
+                "type": "string"
+              },
+              {
+                "id": 4,
+                "name": "postal_code",
+                "type": "string"
+              },
+              {
+                "id": 5,
+                "name": "sorting_code",
+                "type": "string"
+              },
+              {
+                "id": 6,
+                "name": "administrative_area",
+                "type": "string"
+              },
+              {
+                "id": 7,
+                "name": "locality",
+                "type": "string"
+              },
+              {
+                "id": 8,
+                "name": "sublocality",
+                "type": "string"
+              },
+              {
+                "id": 9,
+                "name": "address_lines",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 10,
+                "name": "recipients",
+                "type": "string",
+                "is_repeated": true
+              },
+              {
+                "id": 11,
+                "name": "organization",
+                "type": "string"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/postaladdress;postaladdress"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "PostalAddressProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    },
+    {
+      "protopath": "google:/:type:/:timeofday.proto",
+      "def": {
+        "messages": [
+          {
+            "name": "TimeOfDay",
+            "fields": [
+              {
+                "id": 1,
+                "name": "hours",
+                "type": "int32"
+              },
+              {
+                "id": 2,
+                "name": "minutes",
+                "type": "int32"
+              },
+              {
+                "id": 3,
+                "name": "seconds",
+                "type": "int32"
+              },
+              {
+                "id": 4,
+                "name": "nanos",
+                "type": "int32"
+              }
+            ]
+          }
+        ],
+        "package": {
+          "name": "google.type"
+        },
+        "options": [
+          {
+            "name": "go_package",
+            "value": "google.golang.org/genproto/googleapis/type/timeofday;timeofday"
+          },
+          {
+            "name": "java_multiple_files",
+            "value": "true"
+          },
+          {
+            "name": "java_outer_classname",
+            "value": "TimeOfDayProto"
+          },
+          {
+            "name": "java_package",
+            "value": "com.google.type"
+          },
+          {
+            "name": "objc_class_prefix",
+            "value": "GTP"
+          }
+        ]
+      }
+    }
+  ]
+}
