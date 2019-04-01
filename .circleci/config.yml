@@ -11,6 +11,7 @@ workflows:
       - publish_image:
           requires:
             - compile
+            - protolock
           filters:
             branches:
               only:
