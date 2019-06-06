@@ -1,6 +1,7 @@
 ## Common Protos
 
 [![release level](https://img.shields.io/badge/release%20level-general%20availability%20%28GA%29-brightgreen.svg?style&#x3D;flat)](https://cloud.google.com/terms/launch-stages)
+[![Compat check PyPI](https://python-compatibility-tools.appspot.com/one_badge_image?package=googleapis-common-protos)](https://python-compatibility-tools.appspot.com/one_badge_target?package=googleapis-common-protos)
 
 This repository is a home for the [protocol buffer][protobuf] types which are
 common dependencies throughout the Google API ecosystem, and which are made
