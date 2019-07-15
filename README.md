@@ -78,7 +78,7 @@ dependency, and which makes these types available.
   * **Java**: [proto-google-common-protos](https://mvnrepository.com/artifact/com.google.api.grpc/proto-google-common-protos)
   * **Go**: [google.golang.org/genproto/googleapis]()
   * **Node.js**: [google-proto-files](https://www.npmjs.com/package/google-proto-files)
-  * **PHP**: [gax-php](https://github.com/googleapis/gax-php)
+  * **PHP**: [common-protos-php](https://github.com/googleapis/common-protos-php)
   * **Python**: [googleapis-common-protos](https://pypi.org/project/googleapis-common-protos/)
   * **Ruby**: [googleapis-common-protos](https://rubygems.org/gems/googleapis-common-protos/versions/1.3.5)
 
