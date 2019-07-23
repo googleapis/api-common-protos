@@ -172,7 +172,7 @@ message ResourceReference {
   //       type = "pubsub.googleapis.com/Topic"
   //     }];
   //   }
-  string type = 1;
+  repeated string type = 1;
 
   // The fully-qualified message name of a child of the type that this field
   // references.
@@ -195,5 +195,5 @@ message ResourceReference {
   //     string parent = 1
   //       [(google.api.resource_reference).child_type = "LogEntry"];
   //   }
-  string child_type = 2;
+  repeated string child_type = 2;
 }
