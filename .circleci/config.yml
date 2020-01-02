@@ -17,7 +17,84 @@ workflows:
                 - master
             tags:
               only: /^\d+\.\d+\.\d+$/
+      - publish_python:
+          requires:
+            - compile
+          filters:
+            branches:
+              only:
+                - master
+            tags:
+              only: /^\d+\.\d+\.\d+$/
 jobs:
+  publish_python:
+    docker:
+      - image: python:3.6-alpine
+    environment:
+      PYTHON_PROTO_PATH: /tmp/python_protos
+    steps:
+      - checkout
+      - run:
+          name: Install git
+          command: |
+            apk add git
+      - run:
+          name: Install protoc
+          command: |
+            apk add protoc
+      - run:
+          name: Install OpenSSL
+          command: |
+            apk add openssl
+      - run:
+          name: Compile protos
+          # IAM is published separately because it is Cloud specific.
+          command: |
+            mkdir -p $PYTHON_PROTO_PATH
+            protoc --proto_path=. --python_out=$PYTHON_PROTO_PATH $(find google -not -path "*/iam/*" -name "*.proto")
+      - run:
+          name: Install packaging and publishing tools
+          commands: |
+            apk add pip
+            pip install setuptools twine
+
+      - run:
+          name: Decrypt PyPi config file
+          command: |
+            # We don't just use an environment variable to store the key because of character constraints in CircleCI env vars.
+            # The indirect key is much longer as a result.
+            openssl aes-256-ctr -pbkdf2 -d -k "${PYPI_PUBLISH_INDIRECT_KEY}" < ./circleci/.pypirc.enc > /tmp/.pypirc
+      - run:
+          name: Package the Python bindings
+          command: |
+            set -euo pipefail
+            # Determine package verion info
+            PROTOS_VERSION=$(git describe --tags)
+            PACKAGING_FILES=$(realpath ./.circleci/packaging/python/)
+            # Create __init__.py files
+            cd $PYTHON_PROTO_PATH
+            cat << EOF > google/__init__.py
+            __import__('pkg_resources').declare_namespace(__name__)
+            EOF
+            for d in $(find google -not -path google -type d); do cp google/__init__.py ${d}; done
+            # Add packaging files from templates
+            cp -r $PACKAGING_FILES .
+            # Interpolate version info
+            sed -i "s/{PROTOS_VERSION}/$PROTOS_VERSION/g" $(find . -type f -not -path "./google/*")
+            # Make the tarball
+            python setup.py sdist
+            # Check the tarball
+            twine check dist/*
+      - run:
+          name: Publish the Python bindings
+          commands: |
+            cd $PYTHON_PROTO_PATH
+            twine upload -u google_opensource --repository-url https://pypi.org/project/googleapis-common-protos/ dist/* < /tmp/.pypirc
+      - run:
+          name: Cleanup
+          commands: |
+            rm -f /tmp/.pypirc
+          when: always
   compile:
     docker:
       - image: ubuntu:16.04
