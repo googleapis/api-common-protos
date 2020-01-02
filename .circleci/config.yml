@@ -54,7 +54,7 @@ jobs:
             protoc --proto_path=. --python_out=$PYTHON_PROTO_PATH $(find google -not -path "*/iam/*" -name "*.proto")
       - run:
           name: Install packaging and publishing tools
-          commands: |
+          command: |
             apk add pip
             pip install setuptools twine
 
@@ -87,12 +87,12 @@ jobs:
             twine check dist/*
       - run:
           name: Publish the Python bindings
-          commands: |
+          command: |
             cd $PYTHON_PROTO_PATH
             twine upload -u google_opensource --repository-url https://pypi.org/project/googleapis-common-protos/ dist/* < /tmp/.pypirc
       - run:
           name: Cleanup
-          commands: |
+          command: |
             rm -f /tmp/.pypirc
           when: always
   compile:
