@@ -71,7 +71,6 @@ jobs:
             # Determine package verion info
             PROTOS_VERSION=$(git describe --tags)
             PACKAGING_FILES=$(realpath ./.circleci/packaging/python/)
-            # Decrypt the keyfile
             # Create __init__.py files
             cd $PYTHON_PROTO_PATH
             cat << EOF > google/__init__.py
@@ -81,7 +80,7 @@ jobs:
             # Add packaging files from templates
             cp -r $PACKAGING_FILES .
             # Interpolate version info
-            sed -i "s/{PROTOS_VERSION}/v1.0.0/g" $(find . -type f -not -path "./google/*")
+            sed -i "s/{PROTOS_VERSION}/$PROTOS_VERSION/g" $(find . -type f -not -path "./google/*")
             # Make the tarball
             python setup.py sdist
             # Check the tarball
