@@ -52,7 +52,7 @@ jobs:
           # IAM is published separately because it is Cloud specific.
           command: |
             mkdir -p $PYTHON_PROTO_PATH
-            protoc --proto_path=/usr/src/protoc/include --proto_path=. --python_out=$PYTHON_PROTO_PATH $(find google -not -path "*/iam/*" -name "*.proto")
+            /usr/local/bin/protoc --proto_path=/usr/src/protoc/include --proto_path=. --python_out=$PYTHON_PROTO_PATH $(find google -not -path "*/iam/*" -name "*.proto")
       - run:
           name: Install OpenSSL
           command: |
