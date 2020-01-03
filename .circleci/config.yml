@@ -41,6 +41,7 @@ jobs:
       - run:
           name: Install protoc
           command: |
+            apk add curl unzip
             mkdir -p /usr/src/protoc/
             curl --location https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protoc-3.11.2-linux-x86_64.zip --output /usr/src/protoc/protoc-3.11.2.zip
             cd /usr/src/protoc/
