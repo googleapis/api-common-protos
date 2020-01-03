@@ -39,13 +39,15 @@ jobs:
           command: |
             apk add git
       - run:
-          name: Install protoc
+          name: Get protoc builtins
           command: |
+            apk add protoc
+            # Note: for reasons unknown, the protoc built in types need to be
+            # downloaded separately.
             mkdir -p /usr/src/protoc/
             curl --location https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protoc-3.11.2-linux-x86_64.zip --output /usr/src/protoc/protoc-3.11.2.zip
             cd /usr/src/protoc/
             unzip protoc-3.11.2.zip
-            ln -s /usr/src/protoc/bin/protoc /usr/local/bin/protoc
       - run:
           name: Compile protos
           # IAM is published separately because it is Cloud specific.
@@ -61,11 +63,11 @@ jobs:
           command: |
             # We don't just use an environment variable to store the key because of character constraints in CircleCI env vars.
             # The indirect key is much longer as a result.
-            openssl aes-256-ctr -pbkdf2 -d -k "${PYPI_PUBLISH_INDIRECT_KEY}" < ./circleci/.pypirc.enc > /tmp/.pypirc
+            openssl aes-256-ctr -pbkdf2 -d -k "${PYPI_PUBLISH_INDIRECT_KEY}" < ./.circleci/.pypirc.enc > /tmp/.pypirc
       - run:
           name: Install packaging and publishing tools
           command: |
-            apk add pip
+            apk add gcc libc-dev libffi-dev openssl-dev
             pip install setuptools twine
       - run:
           name: Package the Python bindings
