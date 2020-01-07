@@ -83,7 +83,7 @@ jobs:
             EOF
             for d in $(find google -not -path google -type d); do cp google/__init__.py ${d}; done
             # Add packaging files from templates
-            cp -r $PACKAGING_FILES/* .
+            cp -r ${PACKAGING_FILES}/* .
             # Interpolate version info
             sed -i "s/{PROTOS_VERSION}/$PROTOS_VERSION/g" $(find . -type f -not -path "./google/*")
             # Make the tarball
