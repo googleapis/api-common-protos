@@ -45,9 +45,9 @@ jobs:
             # Note: for reasons unknown, the protoc built in types need to be
             # downloaded separately.
             mkdir -p /usr/src/protoc/
-            curl --location https://github.com/protocolbuffers/protobuf/releases/download/v3.11.2/protoc-3.11.2-linux-x86_64.zip --output /usr/src/protoc/protoc-3.11.2.zip
+            curl --location https://github.com/protocolbuffers/protobuf/releases/download/v3.12.3/protoc-3.12.3-linux-x86_64.zip --output /usr/src/protoc/protoc-3.12.3.zip
             cd /usr/src/protoc/
-            unzip protoc-3.11.2.zip
+            unzip protoc-3.12.3.zip
       - run:
           name: Compile protos
           # IAM is published separately because it is Cloud specific.
