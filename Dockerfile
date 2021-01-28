@@ -4,7 +4,7 @@ FROM alpine:3.8
 RUN apk add --no-cache curl unzip
 
 # Add protoc.
-ENV PROTOBUF_VERSION 3.11.4
+ENV PROTOBUF_VERSION 3.14.0
 RUN mkdir -p /usr/src/protoc/ \
     && curl --location https://github.com/google/protobuf/releases/download/v${PROTOBUF_VERSION}/protoc-${PROTOBUF_VERSION}-linux-x86_64.zip > /usr/src/protoc/protoc-${PROTOBUF_VERSION}.zip \
     && cd /usr/src/protoc/ \
