@@ -17,35 +17,18 @@ syntax = "proto3";
 
 package google.type;
 
-option go_package = "google.golang.org/genproto/googleapis/type/dayofweek;dayofweek";
+option go_package = "google.golang.org/genproto/googleapis/type/fraction;fraction";
 option java_multiple_files = true;
-option java_outer_classname = "DayOfWeekProto";
+option java_outer_classname = "FractionProto";
 option java_package = "com.google.type";
 option objc_class_prefix = "GTP";
 
-// Represents a day of week.
-enum DayOfWeek {
-  // The unspecified day-of-week.
-  DAY_OF_WEEK_UNSPECIFIED = 0;
+// Represents a fraction in terms of a numerator divided by a denominator.
+message Fraction {
+  // The portion of the denominator in the faction, e.g. 2 in 2/3.
+  int64 numerator = 1;
 
-  // The day-of-week of Monday.
-  MONDAY = 1;
-
-  // The day-of-week of Tuesday.
-  TUESDAY = 2;
-
-  // The day-of-week of Wednesday.
-  WEDNESDAY = 3;
-
-  // The day-of-week of Thursday.
-  THURSDAY = 4;
-
-  // The day-of-week of Friday.
-  FRIDAY = 5;
-
-  // The day-of-week of Saturday.
-  SATURDAY = 6;
-
-  // The day-of-week of Sunday.
-  SUNDAY = 7;
+  // The value by which the numerator is divided, e.g. 3 in 2/3. Must be
+  // positive.
+  int64 denominator = 2;
 }
