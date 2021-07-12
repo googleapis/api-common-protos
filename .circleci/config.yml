@@ -102,7 +102,7 @@ jobs:
           when: always
   compile:
     docker:
-      - image: ubuntu:16.04
+      - image: ubuntu:16.10
     steps:
       - checkout
       - run:
