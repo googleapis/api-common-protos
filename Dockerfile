@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.14
 
 # Install curl and unzip, which are required to add protoc.
 RUN apk add --no-cache curl unzip
