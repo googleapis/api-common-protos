@@ -14,7 +14,7 @@ workflows:
             branches:
               only:
                 - input-contract
-                - master
+                - main
             tags:
               only: /^\d+\.\d+\.\d+$/
       - publish_python:
@@ -23,7 +23,7 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - main
             tags:
               only: /^\d+\.\d+\.\d+$/
 jobs:
@@ -156,7 +156,7 @@ jobs:
               docker push gcr.io/gapic-images/api-common-protos:$MAJOR.$MINOR
               docker push gcr.io/gapic-images/api-common-protos:$MAJOR
               docker push gcr.io/gapic-images/api-common-protos:latest
-            elif [ "$CIRCLE_BRANCH" == "master" ]; then
+            elif [ "$CIRCLE_BRANCH" == "main" ]; then
               docker push gcr.io/gapic-images/api-common-protos:latest
             elif [ "$CIRCLE_BRANCH" == "input-contract" ]; then
               docker push gcr.io/gapic-images/api-common-protos:beta
