@@ -102,7 +102,7 @@ jobs:
           when: always
   compile:
     docker:
-      - image: ubuntu:22.04
+      - image: ubuntu:22.10
     steps:
       - checkout
       - run:
