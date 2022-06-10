@@ -120,6 +120,9 @@ service Operations {
   // state before the specified timeout (including immediately), meaning even an
   // immediate response is no guarantee that the operation is done.
   rpc WaitOperation(WaitOperationRequest) returns (Operation) {
+    option (google.api.http) = {
+      get: "/v1/{name=operations/**}:wait"
+    };
   }
 }
 
