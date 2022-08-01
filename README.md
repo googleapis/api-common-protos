@@ -39,6 +39,10 @@ purposes, and are documented in their respective README files.
 
 ## Using these protos
 
+*NOTE* The protos in this repository are not updated automatically and may be 
+outdated. Please look to the [protos in googleapis/googleapis](https://github.com/googleapis/googleapis/tree/master/google) instead
+which are updated regularly.
+
 These protos are made available under an Apache license (see `LICENSE`) and
 you are free to depend on them within your applications. They are
 considered stable and will not change in backwards-incompaible ways.
