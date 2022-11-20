@@ -29,7 +29,7 @@ workflows:
 jobs:
   publish_python:
     docker:
-      - image: python:3.10-alpine
+      - image: python:3.11-alpine
     environment:
       PYTHON_PROTO_PATH: /tmp/python_protos
     steps:
